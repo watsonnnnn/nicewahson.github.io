@@ -1,0 +1,17 @@
+#footer
+  .footer-info
+    p
+      a(href="/baidusitemap.xml") 网站地图
+      |  |
+      a(href="/atom.xml") 订阅本站
+      |  |
+      span 联系博主：
+        a.fa.fa-email(href="mailto:425622122@qq.com",target="_blank") 
+        a.fa.fa-weibo(href="http://weibo.com/2879699090/profile?topnav=1&wvr=6",target="_blank")
+        a.fa.fa-github(href="https://github.com/nicelj",target="_blank") 
+    p
+      span  Copyright &copy;
+        a(href=url_for('.'), rel='nofollow')= config.author || config.title + '.'
+      span  Powered by
+        a(rel='nofollow', target='_blank', href='https://hexo.io')  Hexo.
+      

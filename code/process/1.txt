@@ -1,0 +1,7 @@
+子进程当前目录D:\code\hexoblog\nicelj.github.io\code\process\test
+0:C:\Program Files\nodejs\node.exe
+1:D:\code\hexoblog\nicelj.github.io\code\process\test\child1.js
+2:one
+3:two
+4:three
+5:four
