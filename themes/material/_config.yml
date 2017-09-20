@@ -33,7 +33,7 @@ scheme: Paradox
 
 # UI & UX: slogan, color, effect
 uiux:
-    slogan: "Hi, nice to meet you"
+    slogan: "Hey, welcome you here!"
     theme_color: "#0097A7"
     theme_sub_color: "#00838F"
     hyperlink_color: "#00838F"
@@ -54,7 +54,7 @@ reading:
 # Thumbnail Settings
 thumbnail:
     purecolor:
-    random_amount: 19
+    random_amount: 23
 
 # Background Settings
 # bing available parameter:
@@ -62,18 +62,19 @@ thumbnail:
 #         color available value: black, blue, brown, green, multi, orange, pink, purple, red, white, yellow
 #         type available value: A (animal), C (culture), N (nature), S (space), T (travel)
 background:
-    purecolor: "#F5F5F5"
-    #bgimg: "/img/bg.png"
+    #purecolor: "#F5F5F5"
+    bgimg: "/img/bg.png"
     bing:
         enable: false
-        parameter:
+        parameter: type=A
+           
 
 # Images Settings
 img:
     logo: "/img/logo.png"
     avatar: "/img/avatar.png"
     daily_pic: "/img/daily_pic.png"
-    sidebar_header: "/img/sidebar_header.png"
+    sidebar_header: "/img/slidebar.png"
     random_thumbnail: "/img/random/material-"
     footer_image:
         #upyun_logo:
