@@ -362,12 +362,13 @@ function warnAboutReceivingStore() {
     'tag/v2.0.0 for the migration instructions.'
   )
 }
-////
-有一个在react中组件跨层级传递状态的办法，就是使用context，比如说有个顶层组件<list>，这个组件中有个<listitem>,而这个里面又有个<button>，这个组件里面想要使用最顶层List中的state，
-比如说叫color，传统的方法只能是通过props来进行一级级的传递，使用context就不一样了。要用它，先在List组件中声明一个List.childContextTypes={color: React.PropTypes.string}，然后要在
-List中写一个方法,getChildContext(){return color: 'red'}，在顶层组件做的事就行了，然后在最底层的Button组件里面要用它，Button.contextTypes = {color: React.PropTypes.string}，这样声明
-完成后，Button组件里就可以通过this.context.color来使用这个color。
-
+</provider></pre>
+有一个在react中组件跨层级传递状态的办法，就是使用context，比如说有个顶层组件是List，这个组件中有个ListItem,在里面还有个Button里想要使用最顶层List中的state，比如说叫color，传统的方法只能是通过props来进行一级级的传递，使用context就不一样了。要用它，先在List组件中声明一个List.childContextTypes={color: React.PropTypes.string}，然后要在List中写一个方法,
+  getChildContext(){return color: 'red'}，
+在顶层组件做的事就行了，然后在最底层的Button组件里面要用它，
+  Button.contextTypes = {color: React.PropTypes.string}，
+这样声明完成后，Button组件里就可以通过this.context.color来使用这个color。
+<pre>
 export default class Provider extends Component {
   getChildContext() {
     return { store: this.store, storeSubscription: null }
@@ -405,7 +406,7 @@ Provider.childContextTypes = {
   storeSubscription: subscriptionShape
 }
 Provider.displayName = 'Provider'
-</button></listitem></list></provider></pre>
+</pre>
       
 
       
