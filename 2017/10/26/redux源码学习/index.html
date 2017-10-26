@@ -17,7 +17,7 @@
 <meta property="og:description" content="部分理解redux真的是有利于理解函数式编程，遍地都是函数，遍地都很抽象，以下的是部分理解： 先看一眼redux整个文件夹的目录  基本上用到的也都在这几个里面了先是createstore  export var ActionTypes = {   INIT: &apos;@@redux/INIT&apos; };  export default function createStore(reducer, prelo">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://nicewahson.github.io/2017/10/images/redux/category.png">
-<meta property="og:updated_time" content="2017-10-26T01:19:16.000Z">
+<meta property="og:updated_time" content="2017-10-26T01:42:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redux源码学习">
 <meta name="twitter:description" content="部分理解redux真的是有利于理解函数式编程，遍地都是函数，遍地都很抽象，以下的是部分理解： 先看一眼redux整个文件夹的目录  基本上用到的也都在这几个里面了先是createstore  export var ActionTypes = {   INIT: &apos;@@redux/INIT&apos; };  export default function createStore(reducer, prelo">
@@ -200,6 +200,11 @@ const store = createStore(
 */
 
 //可以传两个或三个参数，两个参数的话进行重新赋值，保证第三个参数始终是个增强函数
+
+</pre>
+
+<a id="more"></a>
+<pre>
   if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
     enhancer = preloadedState;
     preloadedState = undefined;
@@ -546,7 +551,7 @@ export default function bindActionCreators(actionCreators, dispatch) {
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>thanks<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
                     
