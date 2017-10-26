@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://nicewahson.github.io">
-  <title>net模块udpserver | codeguy</title>
+  <title>codeguy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="net模块创建udp服务器udp协议是面向非连接的协议，不要求先建立连接，不安全但是速度快，更实时var dgram = require(‘dgram’);var net = dgram.createSocket(type,[callback]),type指定进行udp通信的协议类型，可为’udp4’或’udp6’,callback用于指定当从该端口接收到数据时调用的回调，function(msg">
-<meta name="keywords" content="tcp和udp通信">
-<meta property="og:type" content="article">
-<meta property="og:title" content="net模块udpserver">
-<meta property="og:url" content="http://nicewahson.github.io/2016/12/21/net模块udpserver/index.html">
+  <meta name="description" content="coding">
+<meta property="og:type" content="website">
+<meta property="og:title" content="codeguy">
+<meta property="og:url" content="http://nicewahson.github.io/page/2/index.html">
 <meta property="og:site_name" content="codeguy">
-<meta property="og:description" content="net模块创建udp服务器udp协议是面向非连接的协议，不要求先建立连接，不安全但是速度快，更实时var dgram = require(‘dgram’);var net = dgram.createSocket(type,[callback]),type指定进行udp通信的协议类型，可为’udp4’或’udp6’,callback用于指定当从该端口接收到数据时调用的回调，function(msg">
+<meta property="og:description" content="coding">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-20T15:37:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="net模块udpserver">
-<meta name="twitter:description" content="net模块创建udp服务器udp协议是面向非连接的协议，不要求先建立连接，不安全但是速度快，更实时var dgram = require(‘dgram’);var net = dgram.createSocket(type,[callback]),type指定进行udp通信的协议类型，可为’udp4’或’udp6’,callback用于指定当从该端口接收到数据时调用的回调，function(msg">
+<meta name="twitter:title" content="codeguy">
+<meta name="twitter:description" content="coding">
   
     <link rel="alternative" href="/atom.xml" title="codeguy" type="application/atom+xml">
   
@@ -155,51 +153,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-net模块udpserver" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-读写文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      net模块udpserver
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/21/读写文件/">读写文件</a>
     </h1>
   
 
         
-        <a href="/2016/12/21/net模块udpserver/" class="archive-article-date">
-  	<time datetime="2016-12-21T10:00:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-21</time>
+        <a href="/2016/11/21/读写文件/" class="archive-article-date">
+  	<time datetime="2016-11-21T10:33:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>net模块创建udp服务器<br>udp协议是面向非连接的协议，不要求先建立连接，不安全但是速度快，更实时<br>var dgram = require(‘dgram’);<br>var net = dgram.createSocket(type,[callback]),type指定进行udp通信的协议类型，可为’udp4’或’udp6’,callback用于指定当从该端口接收到数据时调用的回调，<br>function(msg,rinfo){…},msg是一个buffer对象，其中存放接收到的数据，rinfo参数是一个对象，所具有的属性 address:发送者的ip，family:标识发送者的ip<br>是ipv4还是ipv6，port为发送者的socket端口号，size为发送者所发送的数据字节数，在从该socket端口中接收到数据时，触发message事件,所以也可以使用<br>socket.on(‘message’,function(msg,ringo){})<br>创建socket对象后，必须使用socket.bind(prot,[address],[callback],这样udp客户端才知道往哪个地址发数据，也可以不使用bind方法中的callback方法，<br>绑定完后开始监听时触发socket.on(‘listening’,callback),指定当socket端口对象开始监听来自于指定地址和端口号的数据时所要执行的处理<br>socket.send(buf,offset.length,port,address,[callback]),缓冲区，开始时的位置，发送的字节数，接受数据的socket端口对象所使用的端口号，地址，发送完毕的回调，<br>function(err,bytes){…}<br>socket.close()方法关闭该socket端口对象，停止从该端口上监听数据，如果此时应用程序不再执行其他代码，整个应用会正常关闭。当关闭时触发close事件.<br>socket.setTTL(input),input为0-255的数字，设置数据包的生存时间。<br>socket.setBroadcast(flag),布尔类型参数，为true时表示服务器或客户端可以利用socket对象的send方法进行广播</p>
+        <p>var fs=require(‘fs’); //同步读取，读取配置文件时可以使用<br>fs.readFileSync(‘./index.html’,’utf-8’);<br>fs.readFile(‘./index.html’,’utf-8’,function(err,data){<br>                    console.log(data);//操作完毕后打印结果<br>                    }) //异步读取<br>fs.readFile(filename,[options],callback);如果不在options参数中指定encoding参数，那么读取的结果得到的是一个二进制buffer对象。options中可以用的属性,flag(以何种方式读或是写),encoding<br>fs.writeFile(filename,data,[options],callback);options中可以用的属性，flag,mode(读写权限),encoding(可指定属性值为’utf-8’,’ascii’,’base64’,当data为buffer对象时该属性自动忽略)<br>fs.appendFile(…),参数同上，在文件底部追加数据，和上面不同的是，options中的flag属性默认值为’a’,表示向文件底部追加，如果文件不存在，创建文件<br>从指定位置读写文件<br>开始读写之前,先fs.open(filename,flags,[mode],function(err,fd){…}),fd是文件描述符<br>然后fs.read(fd,buffer,offset,length,position,callback),<br>参数： fd:open方法返回的文件描述符，buffer是一个Buffer对象，表示将文件数据读取到哪个缓冲区，offset指定向缓冲区写入数据时的开始写入位置，length参数用于指定从文件中读取的字节数，<br>position用于指定读取文件时的开始位置(以字节为单位),callback指定,function(err,bytesRead,buffer){//bytesRead参数值代表实际读取的字节数，buffer为被读取的缓存区对象}</p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -210,7 +189,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tcp和udp通信</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件操作</a>
         		</li>
       		
 		</ul>
@@ -222,7 +201,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/网络通信//" class="article-tag-list-link color5">网络通信</a>
+        			<a href="/categories/nodejs笔记//" class="article-tag-list-link color4">nodejs笔记</a>
         		</li>
       		
 		</ul>
@@ -230,84 +209,16 @@
 
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/21/读写文件/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://nicewahson.github.io/2016/12/21/net模块udpserver/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2016/12/24/httpserver/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          httpserver
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/12/10/tcp和udp通信/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">tcp和udp通信</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -327,14 +238,101 @@
 
 
 
-  
-  
-  
 
   
-
+    <article id="post-node_buffer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/21/node_buffer/">nodejs_buff</a>
+    </h1>
   
 
+        
+        <a href="/2016/11/21/node_buffer/" class="archive-article-date">
+  	<time datetime="2016-11-21T09:46:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>构造buffer<br>new Buffer(size),size为缓存区大小<br>buf.fill(value,[offset],[end]),此方法对buffer进行初始化,value必填，表示需要被写入的数值，第二个参数表示从第几个参数写入，<br>默认为0，第三个参数表示写入到第几个字节处，默认为buffer对象大小，即书写到缓存区底部<br>new Buffer(array),array是指定数值数组 eg: newBuff([1,2,3])//(Buffer 00 01 02)<br>new Buffer(str,[encoding]),缓冲区中存放的是原字符串的十六进制表现形式，使用字符串初始化缓冲区，第二个参数为指定文字进行编码，不同编码字符串生成缓冲区对象，<br>ascii编码和u8编码生成的是相同的，其他的是不同的，也就会把不同的数据放在缓冲区。<br>缓冲区对象存在length属性，可以获取长度，也可以使用下标形式获取制定位置的值。</p>
+<p>Buffer对象与字符串对象相互转换<br>toString方法，buf.toString([encoding],[start],[end]),第一个参数默认u8，二三表示转换的起始终止位置<br>write方法向已创建buffer对象写入字符串，buf.write(string,[offset],[length],[encoding]),第一个参数指定写入内容，offset和length参数指定字符串转为字节数据后的<br>写入位置，offset是下标。书写位置从第1+offset个字节开始到offset+length个字节为止。第四个参数编码默认u8。<br>StringDecoder对象<br>var StringDecoder=require(‘string_decoder’).StringDecoder;<br>decoder=new StringDecoder([encoding]);encoding默认u8<br>decoder.write(buffer);将buffer对象中的数据转为字符串</p>
+<p>Buffer对象和JSON对象转换<br>JSON.stringify方法将buffer对象中保存的数据转换为一个字符串，再用JSON.parse方法将转换后的字符串还原为一个数组，这个数组可以用来构造Buffer对象</p>
+<p>复制缓存数据，将一个buffer对象中以保存的二进制数据复制到另一个buffer对象中。<br>buf.copy(targetBuffer,[targetStart],[sourceStart],[sourceEnd]),a.copy(b,10),一直复制到b的末尾，不会再继续复制。</p>
+<p>Buffer的类方法<br>isBuffer方法判断一个对象是否是一个Buffer对象，Buffer.isBuffer(obj)<br>byteLength用于计算指定字符串的字节数，Buffer.byteLength(string,[encoding])<br>concat方法将多个buffer对象连接起来，Buffer.concat(list,[totalLength]),list代表多个buffer对象形成的数组，第二个参数用于指定拼接后生成的buffer对象的长度<br>isEncoding方法用于检测一个字符串是否是一个有效的编码格式字符串，Buffer.isEncoding(encoding);</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nodejs buffer</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/node笔记//" class="article-tag-list-link color2">node笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/21/node_buffer/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -357,8 +355,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

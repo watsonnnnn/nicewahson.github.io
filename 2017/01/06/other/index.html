@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://nicewahson.github.io">
-  <title>net模块udpserver | codeguy</title>
+  <title>other | codeguy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="net模块创建udp服务器udp协议是面向非连接的协议，不要求先建立连接，不安全但是速度快，更实时var dgram = require(‘dgram’);var net = dgram.createSocket(type,[callback]),type指定进行udp通信的协议类型，可为’udp4’或’udp6’,callback用于指定当从该端口接收到数据时调用的回调，function(msg">
-<meta name="keywords" content="tcp和udp通信">
+  <meta name="description" content="other">
 <meta property="og:type" content="article">
-<meta property="og:title" content="net模块udpserver">
-<meta property="og:url" content="http://nicewahson.github.io/2016/12/21/net模块udpserver/index.html">
+<meta property="og:title" content="other">
+<meta property="og:url" content="http://nicewahson.github.io/2017/01/06/other/index.html">
 <meta property="og:site_name" content="codeguy">
-<meta property="og:description" content="net模块创建udp服务器udp协议是面向非连接的协议，不要求先建立连接，不安全但是速度快，更实时var dgram = require(‘dgram’);var net = dgram.createSocket(type,[callback]),type指定进行udp通信的协议类型，可为’udp4’或’udp6’,callback用于指定当从该端口接收到数据时调用的回调，function(msg">
+<meta property="og:description" content="other">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-20T15:37:56.000Z">
+<meta property="og:updated_time" content="2017-10-26T01:05:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="net模块udpserver">
-<meta name="twitter:description" content="net模块创建udp服务器udp协议是面向非连接的协议，不要求先建立连接，不安全但是速度快，更实时var dgram = require(‘dgram’);var net = dgram.createSocket(type,[callback]),type指定进行udp通信的协议类型，可为’udp4’或’udp6’,callback用于指定当从该端口接收到数据时调用的回调，function(msg">
+<meta name="twitter:title" content="other">
+<meta name="twitter:description" content="other">
   
     <link rel="alternative" href="/atom.xml" title="codeguy" type="application/atom+xml">
   
@@ -155,27 +154,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-net模块udpserver" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-other" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      net模块udpserver
+      other
     </h1>
   
 
         
-        <a href="/2016/12/21/net模块udpserver/" class="archive-article-date">
-  	<time datetime="2016-12-21T10:00:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-21</time>
+        <a href="/2017/01/06/other/" class="archive-article-date">
+  	<time datetime="2017-01-06T08:06:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>net模块创建udp服务器<br>udp协议是面向非连接的协议，不要求先建立连接，不安全但是速度快，更实时<br>var dgram = require(‘dgram’);<br>var net = dgram.createSocket(type,[callback]),type指定进行udp通信的协议类型，可为’udp4’或’udp6’,callback用于指定当从该端口接收到数据时调用的回调，<br>function(msg,rinfo){…},msg是一个buffer对象，其中存放接收到的数据，rinfo参数是一个对象，所具有的属性 address:发送者的ip，family:标识发送者的ip<br>是ipv4还是ipv6，port为发送者的socket端口号，size为发送者所发送的数据字节数，在从该socket端口中接收到数据时，触发message事件,所以也可以使用<br>socket.on(‘message’,function(msg,ringo){})<br>创建socket对象后，必须使用socket.bind(prot,[address],[callback],这样udp客户端才知道往哪个地址发数据，也可以不使用bind方法中的callback方法，<br>绑定完后开始监听时触发socket.on(‘listening’,callback),指定当socket端口对象开始监听来自于指定地址和端口号的数据时所要执行的处理<br>socket.send(buf,offset.length,port,address,[callback]),缓冲区，开始时的位置，发送的字节数，接受数据的socket端口对象所使用的端口号，地址，发送完毕的回调，<br>function(err,bytes){…}<br>socket.close()方法关闭该socket端口对象，停止从该端口上监听数据，如果此时应用程序不再执行其他代码，整个应用会正常关闭。当关闭时触发close事件.<br>socket.setTTL(input),input为0-255的数字，设置数据包的生存时间。<br>socket.setBroadcast(flag),布尔类型参数，为true时表示服务器或客户端可以利用socket对象的send方法进行广播</p>
+        <p>other</p>
 
       
 
@@ -205,29 +204,7 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tcp和udp通信</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络通信//" class="article-tag-list-link color5">网络通信</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -277,7 +254,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://nicewahson.github.io/2016/12/21/net模块udpserver/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://nicewahson.github.io/2017/01/06/other/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -291,18 +268,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/12/24/httpserver/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/01/06/db/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          httpserver
+          db
         
       </div>
     </a>
   
   
-    <a href="/2016/12/10/tcp和udp通信/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">tcp和udp通信</div>
+    <a href="/2017/01/06/crypto/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">crypto</div>
       <i class="icon-circle-right"></i>
     </a>
   
