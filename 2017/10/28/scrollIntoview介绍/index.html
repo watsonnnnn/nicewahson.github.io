@@ -16,7 +16,7 @@
 <meta property="og:description" content="scrollIntoView最近看到一些自写的滚动效果，然后想起了scrollInfoView这个api，就又拿出来搞一番。 MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢) 主要语法：  element.scrollIntoView()//相当于scrollIntoView(true) element.scrollIntoView(Boolean)//">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/nicewahson/learn-note/master/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/scrollintoview/Snip20171028_1.png">
-<meta property="og:updated_time" content="2017-10-28T10:26:16.000Z">
+<meta property="og:updated_time" content="2017-10-28T10:29:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scrollIntoview介绍">
 <meta name="twitter:description" content="scrollIntoView最近看到一些自写的滚动效果，然后想起了scrollInfoView这个api，就又拿出来搞一番。 MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢) 主要语法：  element.scrollIntoView()//相当于scrollIntoView(true) element.scrollIntoView(Boolean)//">
@@ -191,6 +191,7 @@ element.scrollIntoView(scrollIntoViewOptions); // Object型参数，可选值有
 </pre>
 
 <p>效果可以<a href="https://nicewahson.github.io/learn-note/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/scrollintoview/scrollintoview.html">去这里</a>看看<br>然后，搞事的来了。</p>
+<a id="more"></a>
 <h3 id="scrollIntoViewIfNeeded"><a href="#scrollIntoViewIfNeeded" class="headerlink" title="scrollIntoViewIfNeeded"></a>scrollIntoViewIfNeeded</h3><p>和上面的一样，也是来进行元素滚动的，但是有点小区别，上面的当元素在可视区时，还是会进行指定的滚动，而这个只有元素不在可视区才会进行滚动。不过用法上还是很简单的</p>
 <pre>
 element.scrollIntoViewIfNeeded()//也是相当于默认传了个true
