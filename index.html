@@ -155,6 +155,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-当fetch遇见CORS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/23/当fetch遇见CORS/">当fetch遇见CORS</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/23/当fetch遇见CORS/" class="archive-article-date">
+  	<time datetime="2018-02-23T02:40:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近做了一个无头浏览器phantomjs截微信文章的功能，最后拆出了三个功能，一个是把整篇文章下载成一张长图，一个是把长图切成小图然后全部上传到后台再返回全部的图片地址，再一个就是看不见的直接把这些图片链接全部上传到已有的接口。下载图片无非就是把phantomjs截下来的图保存到本地，然后再用nodejs去读图下载图，关键代码就这点</p>
+<p><pre><br>var stm = fs.createReadStream(‘./page/‘ + outfiles[0]).pipe(resp);<br>stm.on(‘finish’, function () { //在pipe结束后再删除，否则pipe出来的会缺失<br>    console.log(‘finish success’)<br>    fs.unlinkSync(‘./page/‘ + outfiles[0])<br>})<br></pre><br>然后是切图上传小图。这步结束后，上传所有图片链接时就出了点问题。</p>
+        
+          <a class="article-more-a" href="/2018/02/23/当fetch遇见CORS/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">fetch,cors</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习//" class="article-tag-list-link color3">学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/23/当fetch遇见CORS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-scrollIntoview介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -205,6 +293,146 @@ element.scrollIntoView(scrollIntoViewOptions); // Object型参数，可选值有
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/10/28/scrollIntoview介绍/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-react-redux之connect" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/27/react-redux之connect/">react-redux之connect</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/27/react-redux之connect/" class="archive-article-date">
+  	<time datetime="2017-10-27T01:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h3><p>代码比较多，抽象，慢慢看<br><img src="../../images/redux/redux-connect.png" alt="redux connect"></p>
+<pre>
+export function createConnect({
+  connectHOC = connectAdvanced,
+  mapStateToPropsFactories = defaultMapStateToPropsFactories,
+  mapDispatchToPropsFactories = defaultMapDispatchToPropsFactories,
+  mergePropsFactories = defaultMergePropsFactories,
+  selectorFactory = defaultSelectorFactory
+} = {}) {
+  return function connect(
+    mapStateToProps,
+    mapDispatchToProps,
+    mergeProps,
+    {
+      pure = true,
+      areStatesEqual = strictEqual,
+      areOwnPropsEqual = shallowEqual,
+      areStatePropsEqual = shallowEqual,
+      areMergedPropsEqual = shallowEqual,
+      ...extraOptions
+    } = {}
+  ) {
+    const initMapStateToProps = match(mapStateToProps, mapStateToPropsFactories, 'mapStateToProps')
+    const initMapDispatchToProps = match(mapDispatchToProps, mapDispatchToPropsFactories, 'mapDispatchToProps')
+    const initMergeProps = match(mergeProps, mergePropsFactories, 'mergeProps')
+
+    return connectHOC(selectorFactory, {
+      // used in error messages
+      methodName: 'connect',
+
+       // used to compute Connect's displayName from the wrapped component's displayName.
+      getDisplayName: name => `Connect(${name})`,
+
+      // if mapStateToProps is falsy, the Connect component doesn't subscribe to store state changes
+      shouldHandleStateChanges: Boolean(mapStateToProps),
+
+      // passed through to selectorFactory
+      initMapStateToProps,
+      initMapDispatchToProps,
+      initMergeProps,
+      pure,
+      areStatesEqual,
+      areOwnPropsEqual,
+      areStatePropsEqual,
+      areMergedPropsEqual,
+
+      // any extra options args can override defaults of connect or connectAdvanced
+      ...extraOptions
+    })
+  }
+}
+
+export default createConnect()
+</pre>
+<pre>
+import hoistStatics from 'hoist-non-react-statics' // 自动把所有绑定在对象上的非react方法都绑定到新的对象上
+</pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">react-redux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/redux//" class="article-tag-list-link color1">redux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/27/react-redux之connect/">展开全文 >></a>
         </p>
       
 
@@ -393,13 +621,13 @@ element.scrollIntoView(scrollIntoViewOptions); // Object型参数，可选值有
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/26/react-redux源码初窥之Provider/">react-redux源码初窥之Provider</a>
+      <a class="article-title" href="/2017/10/25/react-redux源码初窥之Provider/">react-redux源码初窥之Provider</a>
     </h1>
   
 
         
-        <a href="/2017/10/26/react-redux源码初窥之Provider/" class="archive-article-date">
-  	<time datetime="2017-10-26T01:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-26</time>
+        <a href="/2017/10/25/react-redux源码初窥之Provider/" class="archive-article-date">
+  	<time datetime="2017-10-25T01:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-25</time>
 </a>
         
       </header>
@@ -443,7 +671,7 @@ function warnAboutReceivingStore() {
 }
 </provider></pre>
         
-          <a class="article-more-a" href="/2017/10/26/react-redux源码初窥之Provider/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/25/react-redux源码初窥之Provider/#more">more >></a>
         
       
 
@@ -478,7 +706,7 @@ function warnAboutReceivingStore() {
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/26/react-redux源码初窥之Provider/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/10/25/react-redux源码初窥之Provider/">展开全文 >></a>
         </p>
       
 
@@ -515,13 +743,13 @@ function warnAboutReceivingStore() {
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/26/redux源码学习/">redux源码学习</a>
+      <a class="article-title" href="/2017/10/14/redux源码学习/">redux源码学习</a>
     </h1>
   
 
         
-        <a href="/2017/10/26/redux源码学习/" class="archive-article-date">
-  	<time datetime="2017-10-26T01:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-26</time>
+        <a href="/2017/10/14/redux源码学习/" class="archive-article-date">
+  	<time datetime="2017-10-14T01:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
 </a>
         
       </header>
@@ -554,7 +782,7 @@ const store = createStore(
 
 </pre>
         
-          <a class="article-more-a" href="/2017/10/26/redux源码学习/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/14/redux源码学习/#more">more >></a>
         
       
 
@@ -589,110 +817,7 @@ const store = createStore(
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/26/redux源码学习/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-react-redux之connect" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h3><p>代码比较多，抽象，慢慢看<br><img src="../../images/redux/redux-connect.png" alt="redux connect"></p>
-<pre>
-export function createConnect({
-  connectHOC = connectAdvanced,
-  mapStateToPropsFactories = defaultMapStateToPropsFactories,
-  mapDispatchToPropsFactories = defaultMapDispatchToPropsFactories,
-  mergePropsFactories = defaultMergePropsFactories,
-  selectorFactory = defaultSelectorFactory
-} = {}) {
-  return function connect(
-    mapStateToProps,
-    mapDispatchToProps,
-    mergeProps,
-    {
-      pure = true,
-      areStatesEqual = strictEqual,
-      areOwnPropsEqual = shallowEqual,
-      areStatePropsEqual = shallowEqual,
-      areMergedPropsEqual = shallowEqual,
-      ...extraOptions
-    } = {}
-  ) {
-    const initMapStateToProps = match(mapStateToProps, mapStateToPropsFactories, 'mapStateToProps')
-    const initMapDispatchToProps = match(mapDispatchToProps, mapDispatchToPropsFactories, 'mapDispatchToProps')
-    const initMergeProps = match(mergeProps, mergePropsFactories, 'mergeProps')
-
-    return connectHOC(selectorFactory, {
-      // used in error messages
-      methodName: 'connect',
-
-       // used to compute Connect's displayName from the wrapped component's displayName.
-      getDisplayName: name => `Connect(${name})`,
-
-      // if mapStateToProps is falsy, the Connect component doesn't subscribe to store state changes
-      shouldHandleStateChanges: Boolean(mapStateToProps),
-
-      // passed through to selectorFactory
-      initMapStateToProps,
-      initMapDispatchToProps,
-      initMergeProps,
-      pure,
-      areStatesEqual,
-      areOwnPropsEqual,
-      areStatePropsEqual,
-      areMergedPropsEqual,
-
-      // any extra options args can override defaults of connect or connectAdvanced
-      ...extraOptions
-    })
-  }
-}
-
-export default createConnect()
-</pre>
-<pre>
-import hoistStatics from 'hoist-non-react-statics' // 自动把所有绑定在对象上的非react方法都绑定到新的对象上
-</pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/09/react-redux之connect/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/10/14/redux源码学习/">展开全文 >></a>
         </p>
       
 
@@ -980,91 +1105,6 @@ import hoistStatics from 'hoist-non-react-statics' // 自动把所有绑定在�
 
 
   
-    <article id="post-process" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/04/process/">process</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/04/process/" class="archive-article-date">
-  	<time datetime="2017-01-04T08:16:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>process.memoryUsage(),获取运行nodejs程序的进程的内存使用量。<br>nextTick方法，用于将一个函数推迟到代码中所书写的下一个同步方法执行完毕时或异步方法的事件回调函数开始执行时调用,process.nextTick(callback)<br>abort方法用于发出SIGABRT信号，使进程异常终止，同时产生一个核心文件<br>chdir方法用于修改应用程序中使用的当前工作目录,process.chdir(directory),参数是一个字符串，相对或绝对路径<br>cwd方法，返回当前目录<br>exit方法用于退出nodejs应用程序进程,process,exit([code]),code指定为操作系统提供退出代码，为0时表示正常退出，默认为0<br>getgid方法返回运行nodejs应用程序的进程组id，只在非windows系统有效<br>setgid方法设置程序进程组id，只在非windows系统有效，process.setgid(id)<br>getuid方法返回运行nodejs应用程序的进程的用户id<br>setuid。。。<br>kill方法，向一个进程发送信号，process.kill(pid,[signal]),pid是进程号，signal可选，如SIGINT,SIGUSR1,默认为SIGTERM（表示中止该进程）<br>uptime方法返回nodejs程序的当前运行时间，单位是秒。<br>hrtime测试代码段的运行时间，返回一个数组，第一个参数是秒，第二个是毫秒<br>child_process模块开启子进程<br>child_process.spawn(command,[argv],[options])<br>process.stdin.on(‘data’,function(data){}),process.stdout.write(data)<br>开启子进程child_process.fork(modulePath,[args],[options])，使用此方法要显示关闭进程，process.exit(),发送消息可以使用process.send(m,[setHandle])<br>当子进程收到消息时触发message事件，process.on(‘message’,function(m,[setHandle]){}),当发送时的setHandle为server或socket对象，那么收到时的也是。<br>cluster.fork([env]),返回一个隐式创建的worker对象，表示使用fork方法开启的子进程中运行的nodejs应用程序实例对象，并且在该应用程序中运行一个模块文件，(默认是当前应用程序中使用的主模块文件)；<br>cluster.on(‘fork’,function(worker){…});<br>cluster.setupMaster([settings])修改子进程中运行的模块文件或修改子进程中运行的nodejs程序的其他默认行为</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">process</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/process//" class="article-tag-list-link color3">process</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/04/process/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1079,7 +1119,7 @@ import hoistStatics from 'hoist-non-react-statics' // 自动把所有绑定在�
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Max
+    		&copy; 2018 Max
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme      	</div>
@@ -1162,11 +1202,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tcp和udp通信</a>
+                <a href="javascript:void(0)" class="js-tag color2">http server</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">http server</a>
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">tcp和udp通信</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1178,15 +1222,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">react-redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件操作</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1195,6 +1231,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件操作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">fetch,cors</a>
               </li>
             
             <div class="clearfix"></div>
