@@ -6,21 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://nicewahson.github.io">
-  <title>scrollIntoview介绍 | Max&#39;s blog</title>
+  <title>Tag: 随笔 | Max&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="scrollIntoView最近看到一些自写的滚动效果，然后想起了scrollInfoView这个api，就又拿出来搞一番。 MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢) 主要语法：  element.scrollIntoView()//相当于scrollIntoView(true) element.scrollIntoView(Boolean)//">
-<meta property="og:type" content="article">
-<meta property="og:title" content="scrollIntoview介绍">
-<meta property="og:url" content="http://nicewahson.github.io/2017/10/28/scrollIntoview介绍/index.html">
+  <meta name="description" content="花开堪折直须折 莫待无花空折枝">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Max&#39;s blog">
+<meta property="og:url" content="http://nicewahson.github.io/tags/随笔/index.html">
 <meta property="og:site_name" content="Max&#39;s blog">
-<meta property="og:description" content="scrollIntoView最近看到一些自写的滚动效果，然后想起了scrollInfoView这个api，就又拿出来搞一番。 MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢) 主要语法：  element.scrollIntoView()//相当于scrollIntoView(true) element.scrollIntoView(Boolean)//">
+<meta property="og:description" content="花开堪折直须折 莫待无花空折枝">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ogx4oq7wa.bkt.clouddn.com/Snip20171028_1.png">
-<meta property="og:updated_time" content="2017-10-28T10:38:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="scrollIntoview介绍">
-<meta name="twitter:description" content="scrollIntoView最近看到一些自写的滚动效果，然后想起了scrollInfoView这个api，就又拿出来搞一番。 MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢) 主要语法：  element.scrollIntoView()//相当于scrollIntoView(true) element.scrollIntoView(Boolean)//">
-<meta name="twitter:image" content="http://ogx4oq7wa.bkt.clouddn.com/Snip20171028_1.png">
+<meta name="twitter:title" content="Max&#39;s blog">
+<meta name="twitter:description" content="花开堪折直须折 莫待无花空折枝">
   
     <link rel="alternative" href="/atom.xml" title="Max&#39;s blog" type="application/atom+xml">
   
@@ -156,190 +153,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-scrollIntoview介绍" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      scrollIntoview介绍
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/02/23/新年小记/" class="archive-article-date">
+  	<time datetime="2018-02-23T02:53:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-23</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/02/23/新年小记/">新年小记</a>
     </h1>
   
 
-        
-        <a href="/2017/10/28/scrollIntoview介绍/" class="archive-article-date">
-  	<time datetime="2017-10-28T07:48:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="scrollIntoView"><a href="#scrollIntoView" class="headerlink" title="scrollIntoView"></a>scrollIntoView</h3><p>最近看到一些自写的滚动效果，然后想起了scrollInfoView这个api，就又拿出来搞一番。</p>
-<p>MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢)<br><img src="http://ogx4oq7wa.bkt.clouddn.com/Snip20171028_1.png" alt="pic"></p>
-<p>主要语法：</p>
-<pre>
-element.scrollIntoView()//相当于scrollIntoView(true)
-element.scrollIntoView(Boolean)//参数为true的话，元素顶端和所在可视区的顶端平齐，
-为false的话元素底端和所在可视区的底端对齐
-element.scrollIntoView(scrollIntoViewOptions); // Object型参数，可选值有
-{
-    behavior: "auto"  | "instant" | "smooth",//立即滚动和平滑滚动
-    block:    "start" | "end", 不加这个属性的话，滚动位置是在可视区中间。加start的话，就和上一个true效果一样
-}
-</pre>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-<p>效果可以<a href="https://nicewahson.github.io/learn-note/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/scrollintoview/scrollintoview.html">去这里</a>看看<br>然后，搞事的来了。</p>
-<a id="more"></a>
-<h3 id="scrollIntoViewIfNeeded"><a href="#scrollIntoViewIfNeeded" class="headerlink" title="scrollIntoViewIfNeeded"></a>scrollIntoViewIfNeeded</h3><p>和上面的一样，也是来进行元素滚动的，但是有点小区别，上面的当元素在可视区时，还是会进行指定的滚动，而这个只有元素不在可视区才会进行滚动。不过用法上还是很简单的</p>
-<pre>
-element.scrollIntoViewIfNeeded()//也是相当于默认传了个true
-element.scrollIntoViewIfNeeded(Boolean)//
-参数是boolean值，为true的话，元素滚动后的位置在可视区正中；为false的话，就是元素离
-可视区上下边缘哪个近，就停在哪个位置，就是说上面的元素要滚下来，最后就停在可视区上
-面，下面元素要滚上去，就停在可视区下面
-</pre>
+          
 
-<p>卒~</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>thanks<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://nicewahson.github.io/2017/10/28/scrollIntoview介绍/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/02/23/当fetch遇见CORS/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          当fetch遇见CORS
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/10/27/react-redux之connect/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">react-redux之connect</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -362,9 +229,9 @@ element.scrollIntoViewIfNeeded(Boolean)//
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
