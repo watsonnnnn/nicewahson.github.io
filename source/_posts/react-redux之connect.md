@@ -7,7 +7,7 @@ categories: redux
 
 ### connect
 代码比较多，抽象，慢慢看
-![redux connect](../../images/redux/redux-connect.png)
+![redux connect](redux-connect.png)
 
 <pre>
 export function createConnect({
