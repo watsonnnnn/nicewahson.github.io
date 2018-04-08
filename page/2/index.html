@@ -155,6 +155,128 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-react-redux源码初窥之Provider" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/25/react-redux源码初窥之Provider/">react-redux源码初窥之Provider</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/25/react-redux源码初窥之Provider/" class="archive-article-date">
+  	<time datetime="2017-10-25T01:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>redux提供了一个独立的store，但是它并不是完全为了react定做的，要想在react中使用redux，需要自己写store.getstate,subscribe…，所以，为了能将redux完全应用到react而减少我们的代码，就有了react-redux</p>
+<h3 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h3><pre>
+// Provider是这么用的，所以它是个react组件，有个prop是store
+    <provider store="{store}">
+        <route>
+        </route></provider>
+/***/
+export const subscriptionShape = PropTypes.shape({
+  trySubscribe: PropTypes.func.isRequired,
+  tryUnsubscribe: PropTypes.func.isRequired,
+  notifyNestedSubs: PropTypes.func.isRequired,
+  isSubscribed: PropTypes.func.isRequired,
+})
+
+export const storeShape = PropTypes.shape({
+  subscribe: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  getState: PropTypes.func.isRequired
+})
+
+let didWarnAboutReceivingStore = false
+function warnAboutReceivingStore() {
+  if (didWarnAboutReceivingStore) {
+    return
+  }
+  didWarnAboutReceivingStore = true
+
+  warning(
+    '<provider> does not support changing `store` on the fly. ' +
+    'It is most likely that you see this error because you updated to ' +
+    'Redux 2.x and React Redux 2.x which no longer hot reload reducers ' +
+    'automatically. See https://github.com/reactjs/react-redux/releases/' +
+    'tag/v2.0.0 for the migration instructions.'
+  )
+}
+</provider></pre>
+        
+          <a class="article-more-a" href="/2017/10/25/react-redux源码初窥之Provider/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">react-redux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/redux//" class="article-tag-list-link color1">redux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/25/react-redux源码初窥之Provider/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-redux源码学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -957,91 +1079,6 @@ const store = createStore(
 
 
   
-    <article id="post-读写文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/21/读写文件/">读写文件</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/21/读写文件/" class="archive-article-date">
-  	<time datetime="2016-11-21T10:33:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>var fs=require(‘fs’); //同步读取，读取配置文件时可以使用<br>fs.readFileSync(‘./index.html’,’utf-8’);<br>fs.readFile(‘./index.html’,’utf-8’,function(err,data){<br>                    console.log(data);//操作完毕后打印结果<br>                    }) //异步读取<br>fs.readFile(filename,[options],callback);如果不在options参数中指定encoding参数，那么读取的结果得到的是一个二进制buffer对象。options中可以用的属性,flag(以何种方式读或是写),encoding<br>fs.writeFile(filename,data,[options],callback);options中可以用的属性，flag,mode(读写权限),encoding(可指定属性值为’utf-8’,’ascii’,’base64’,当data为buffer对象时该属性自动忽略)<br>fs.appendFile(…),参数同上，在文件底部追加数据，和上面不同的是，options中的flag属性默认值为’a’,表示向文件底部追加，如果文件不存在，创建文件<br>从指定位置读写文件<br>开始读写之前,先fs.open(filename,flags,[mode],function(err,fd){…}),fd是文件描述符<br>然后fs.read(fd,buffer,offset,length,position,callback),<br>参数： fd:open方法返回的文件描述符，buffer是一个Buffer对象，表示将文件数据读取到哪个缓冲区，offset指定向缓冲区写入数据时的开始写入位置，length参数用于指定从文件中读取的字节数，<br>position用于指定读取文件时的开始位置(以字节为单位),callback指定,function(err,bytesRead,buffer){//bytesRead参数值代表实际读取的字节数，buffer为被读取的缓存区对象}</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件操作</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/nodejs笔记//" class="article-tag-list-link color4">nodejs笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/21/读写文件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1143,15 +1180,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tcp和udp通信</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nodejs buffer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1171,19 +1208,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件操作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">fetch,cors</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件操作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
