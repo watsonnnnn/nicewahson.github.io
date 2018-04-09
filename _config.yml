@@ -103,6 +103,6 @@ jsonContent:
 deploy:
    type: git
 
-   repo: https://github.com/nicewahson/nicewahson.github.io.git
+   repo: git@github.com:nicewahson/nicewahson.github.io.git
 
    branch: master
