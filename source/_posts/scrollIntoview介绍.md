@@ -8,7 +8,7 @@ tags:
 最近看到一些自写的滚动效果，然后想起了scrollInfoView这个api，就又拿出来搞一番。
 
 MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢)
-![pic](http://ogx4oq7wa.bkt.clouddn.com/Snip20171028_1.png)
+![pic](Snip20171028_1.png)
 
 主要语法：
 <pre>
