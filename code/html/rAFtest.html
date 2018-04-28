@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>requestAnimationFrame</title>
+</head>
+
+<body>
+    <div id="container" style="border:1px solid orange"></div>
+    <script>
+        var con = document.querySelector('#container');
+
+        console.time('rfa'); // 500 ms
+        var times = 10000 / 20,
+            count = 0;
+
+        setTimeout(function () {
+            if (count < times) {
+                for (var i = 0; i < 20; i++) {
+                    con.appendChild(returnDiv(count*20+i));
+                }
+                setTimeout(arguments.callee, 0);
+            }
+            count++;
+        }, 0);
+
+        console.timeEnd('rfa');
+
+        function returnDiv(q) {
+            var div = document.createElement('div');
+            div.style.cssText = 'margin-bottom:10px;height:10px;background:pink';
+            div.textContent = q;
+            return div;
+        }
+    </script>
+
+    <!-- <script>
+        var d = document.createElement('div');
+        d.style.cssText = 'height:100px;width: 0;background: #008080'
+        document.body.insertBefore(d, document.body.lastChild);
+        
+        var width = 0, rfaId;
+
+
+
+        
+        function rfa(){
+            width ++;
+            if(width <= 500){
+                rfaId = window.requestAnimationFrame(rfa)
+                d.style.width = width + 'px';
+            }
+            else{
+                window.cancelAnimationFrame(rfaId);
+            }
+        }
+
+        window.requestAnimationFrame(rfa);
+
+    </script> -->
+</body>
+
+</html>
