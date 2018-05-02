@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>promisetest</title>
+</head>
+
+<body>
+    <!-- <div id="div" style="position: absolute; top: 200px;height:100px;width: 100px; background: #42bdae">
+
+    </div>
+    <div style="height:2000px;">
+        getboundingrect()方法得到位置值可能小于0；
+    </div> -->
+    <script>
+        class PPromise {
+            constructor(fn) {
+                this.value = '';
+                this.successFuncs = [];
+                // this.errorFuncs = [];
+                this.status = 'PENDING';
+
+                fn(this.resolve.bind(this));
+            }
+
+            resolve(v) {
+                setTimeout(() => {
+                    this.value = v;
+                    this.status = 'FULLFILLED';
+                    this.successFuncs.forEach((f) => {
+                        this.value = f(this.value);
+                    });
+                }, 0);
+            }
+
+            then(f) {
+                return new PPromise((resolve) => {
+                    function handle(v) {
+                        let value = f(v);
+                        if(typeof value === 'object'){
+                            value.then((iv)=>{
+                                resolve(iv);
+                            });
+                        }else{
+                            resolve(value);
+                        }
+                    }
+
+                    if (this.status == 'PENDING') {
+                        this.successFuncs.push(handle);
+                    } else if (this.status == 'FULLFILLED') {
+                        this.value = f(this.value);
+                    }
+                });
+            }
+
+        }
+    </script>
+</body>
+
+</html>
