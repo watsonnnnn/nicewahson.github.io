@@ -155,6 +155,308 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-string的api" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/13/string的api/">string的api</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/13/string的api/" class="archive-article-date">
+  	<time datetime="2018-04-13T01:55:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h3><p>string.replace: function(regexp, replacement)</p>
+<p>regexp可以使用/g修饰符。</p>
+<p>replacement可以是字符串，也可以是$符号用来指代替换内容。</p>
+<pre>
+$&:代指匹配到的内容本身
+$`:代指匹配到的结果前面的文本(前面所有)
+$':代指匹配到的结果后面的文本
+$n:代指匹配到的第n组内容
+$$:指美元符号
+
+'msaTom'.replace(/[A-Z]|^ms/g,'-$&')
+// "-msa-Tom"
+
+'qwersaTom'.replace(/[A-Z]|^ms/g,'-$`')
+// "qwersa-qwersaom"
+
+</pre>
+replacement也可以是函数，function(match, $1, $2,..., index, string){}
+match是匹配到的内容，$n指分组，有多少分组就有多少$，最后的index指内容的起始下标，string指原字符串。
+<pre>
+'qqqaaa'.replace(/(q)(a)/g,function(m,s1,s2,index,str){
+    console.log(m,s1,s2,index, str)
+    return 'w';
+})
+
+// qa q a 2 qqqaaa
+</pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">javascript api</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/13/string的api/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-flex布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/11/flex布局/">flex布局</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/11/flex布局/" class="archive-article-date">
+  	<time datetime="2018-04-11T02:52:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><h2 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h2><p>flex-direction: row | row-reverse | column | column-reverse</p>
+<p><img src="direction.jpg" alt="flex-direction"></p>
+<p>flex-wrap: nowrap | wrap | wrap-reverse</p>
+<p><img src="wrap.png" alt="flex-direction"></p>
+        
+          <a class="article-more-a" href="/2018/04/11/flex布局/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css flex</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/11/flex布局/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-关于Date对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/09/关于Date对象/">关于Date对象</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/09/关于Date对象/" class="archive-article-date">
+  	<time datetime="2018-04-09T05:54:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.构造函数直接调用无效，即使传参。</p>
+<p>2.new进行构造时</p>
+<pre>
+new Date();
+new Date(value);
+new Date(dateString);
+new Date(year, month[, day[, hour[, minutes[, seconds[, milliseconds]]]]]);
+年：使用四位数年份，比如2000。如果写成两位数或个位数，则加上1900，即10代表1910年。如果是负数，表示公元前。
+月：0表示一月，依次类推，11表示12月。
+日：1到31。
+小时：0到23。
+分钟：0到59。
+秒：0到59
+毫秒：0到999。
+</pre>
+<pre>
+// 参数为时间零点开始计算的毫秒数
+new Date(1378218728000)
+// Tue Sep 03 2013 22:32:08 GMT+0800 (CST)
+
+// 参数为日期字符串
+new Date('January 6, 2013');
+// Sun Jan 06 2013 00:00:00 GMT+0800 (CST)
+
+// 参数为多个整数，
+// 代表年、月、日、小时、分钟、秒、毫秒
+new Date(2013, 0, 1, 0, 0, 0, 0)
+// Tue Jan 01 2013 00:00:00 GMT+0800 (CST)
+</pre>
+* 参数可以是负数，代表1970年元旦之前的时间<pre>
+new Date(-1378218728000)
+// Fri Apr 30 1926 17:27:52 GMT+0800 (CST)
+</pre>
+* 只要是能被Date.parse()方法解析的字符串，都可以当作参数<pre>
+new Date('2013-2-15')
+new Date('2013/2/15')
+new Date('02/15/2013')
+new Date('2013-FEB-15')
+new Date('FEB, 15, 2013')
+new Date('FEB 15, 2013')
+new Date('Feberuary, 15, 2013')
+new Date('Feberuary 15, 2013')
+new Date('15 Feb 2013')
+new Date('15, Feberuary, 2013')
+// Fri Feb 15 2013 00:00:00 GMT+0800 (CST)
+</pre>
+
+<p>日期类型相加时返回两个字符串连接后的新字符串，相减时返回间隔毫秒数。</p>
+<p>Date.now()</p>
+<p>Date.now方法返回当前时间距离时间零点（1970年1月1日 00:00:00 UTC）的毫秒数，相当于 Unix 时间戳乘以1000</p>
+<p>Date.parse()</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">api Date</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/09/关于Date对象/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-git命令小结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -175,11 +477,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>添加子公共项目：</p>
-<pre>
+        <h3 id="添加子公共项目："><a href="#添加子公共项目：" class="headerlink" title="添加子公共项目："></a>添加子公共项目：</h3><pre>
 git remote add childUpstream https://xxxx
 git subtree --prefix -S=放子git工程的文件夹 childUpstream 分支
 </pre>
+
+<h3 id="git-rebase-git-merge"><a href="#git-rebase-git-merge" class="headerlink" title="git rebase, git merge"></a>git rebase, git merge</h3><p>merge之前<br><img src="beforemerge.jpg" alt="merge前"><br>在master上merge，根据696和8ab和两个分支的共同祖先e38进行三方合并，最后生成新commit<br><img src="aftermerge.jpg" alt="merge后"></p>
+<p>rebase之前<br><img src="beforerebase.jpg" alt="rebase之前"><br>在master上git rebase dev，会把rebase的分支上内容拉下来，再把本次master上特有的全部commit都提取出来顶到最上面，生成新的commit，每个commit有一个冲突，也就可能多次冲突。相当于把master上的commit复制一遍到了dev上，但是还是处在master分支。<br><img src="afterrebase.jpg" alt="rebase之后"></p>
+
       
 
       
@@ -616,7 +921,7 @@ git subtree --prefix -S=放子git工程的文件夹 childUpstream 分支
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="scrollIntoView"><a href="#scrollIntoView" class="headerlink" title="scrollIntoView"></a>scrollIntoView</h3><p>最近看到一些自写的滚动效果，然后想起了scrollInfoView这个api，就又拿出来搞一番。</p>
-<p>MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢)<br><img src="http://ogx4oq7wa.bkt.clouddn.com/Snip20171028_1.png" alt="pic"></p>
+<p>MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢)<br><img src="Snip20171028_1.png" alt="pic"></p>
 <p>主要语法：</p>
 <pre>
 element.scrollIntoView()//相当于scrollIntoView(true)
@@ -645,298 +950,6 @@ element.scrollIntoView(scrollIntoViewOptions); // Object型参数，可选值有
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/10/28/scrollIntoview介绍/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-react-redux之connect" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/27/react-redux之connect/">react-redux之connect</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/27/react-redux之connect/" class="archive-article-date">
-  	<time datetime="2017-10-27T01:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h3><p>代码比较多，抽象，慢慢看<br><img src="redux-connect.png" alt="redux connect"></p>
-<pre>
-export function createConnect({
-  connectHOC = connectAdvanced,
-  mapStateToPropsFactories = defaultMapStateToPropsFactories,
-  mapDispatchToPropsFactories = defaultMapDispatchToPropsFactories,
-  mergePropsFactories = defaultMergePropsFactories,
-  selectorFactory = defaultSelectorFactory
-} = {}) {
-  return function connect(
-    mapStateToProps,
-    mapDispatchToProps,
-    mergeProps,
-    {
-      pure = true,
-      areStatesEqual = strictEqual,
-      areOwnPropsEqual = shallowEqual,
-      areStatePropsEqual = shallowEqual,
-      areMergedPropsEqual = shallowEqual,
-      ...extraOptions
-    } = {}
-  ) {
-    const initMapStateToProps = match(mapStateToProps, mapStateToPropsFactories, 'mapStateToProps')
-    const initMapDispatchToProps = match(mapDispatchToProps, mapDispatchToPropsFactories, 'mapDispatchToProps')
-    const initMergeProps = match(mergeProps, mergePropsFactories, 'mergeProps')
-
-    return connectHOC(selectorFactory, {
-      // used in error messages
-      methodName: 'connect',
-
-       // used to compute Connect's displayName from the wrapped component's displayName.
-      getDisplayName: name => `Connect(${name})`,
-
-      // if mapStateToProps is falsy, the Connect component doesn't subscribe to store state changes
-      shouldHandleStateChanges: Boolean(mapStateToProps),
-
-      // passed through to selectorFactory
-      initMapStateToProps,
-      initMapDispatchToProps,
-      initMergeProps,
-      pure,
-      areStatesEqual,
-      areOwnPropsEqual,
-      areStatePropsEqual,
-      areMergedPropsEqual,
-
-      // any extra options args can override defaults of connect or connectAdvanced
-      ...extraOptions
-    })
-  }
-}
-
-export default createConnect()
-</pre>
-<pre>
-import hoistStatics from 'hoist-non-react-statics' // 自动把所有绑定在对象上的非react方法都绑定到新的对象上
-</pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">react-redux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/redux//" class="article-tag-list-link color1">redux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/27/react-redux之connect/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-html学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/26/html学习/">html学习</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/26/html学习/" class="archive-article-date">
-  	<time datetime="2017-10-26T01:23:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/26/html学习/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue简单记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/26/vue简单记/">vue简单记</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/26/vue简单记/" class="archive-article-date">
-  	<time datetime="2017-10-26T01:22:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>定义组件时使用的标签名中不能有大写字母，而且如果全局注册的组件，必须在挂载元素实例化之前注册，否则会报do you register component correctly?</p>
-<p>组件的标签名一定要写完整，<comp></comp>，要是这种形式，如果只是<comp>这样的形式，会出现只渲染出第一个组件的情况，因为组件不知道什么时候结束。</comp></p>
-<p>slot用来进行内容填充，在组件中定义时用<slot>xxx</slot>这种形式，如果不指定name属性的话，在上面使用的时候，组件里面的内容会替换全部的slo(但是<br>这种多个slot不带name会报错)；如果是指定的name属性，比如<omponent><span slot="header">xxxx</span>，这样的组件里的填充内容只会替换<br>掉组件定义时指定name的slot，相当于插槽的意思。</omponent></p>
-<p>vm.$el 元素 vm.$data data数据 vm.$mount vm.$destroy手动挂载销毁 vm.$options 除data外的属性</p>
-<p>使用template作模板标签，将标签整个放到挂载元素外面就不会被渲染，放在里面的话，就会直接渲染出template里面的内容。</p>
-<p>使用$emit向父组件进行传值，需要先注册一个事件，然后手动出发this.$emit(事件名，参数1，参数2…)</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/26/vue简单记/">展开全文 >></a>
         </p>
       
 
@@ -1112,6 +1125,18 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">git 版本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css flex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">javascript api</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">api Date</a>
               </li>
             
             <div class="clearfix"></div>
