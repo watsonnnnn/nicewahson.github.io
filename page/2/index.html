@@ -155,6 +155,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-scrollIntoview介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/28/scrollIntoview介绍/">scrollIntoview介绍</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/28/scrollIntoview介绍/" class="archive-article-date">
+  	<time datetime="2017-10-28T07:48:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="scrollIntoView"><a href="#scrollIntoView" class="headerlink" title="scrollIntoView"></a>scrollIntoView</h3><p>最近看到一些自写的滚动效果，然后想起了scrollInfoView这个api，就又拿出来搞一番。</p>
+<p>MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢)<br><img src="Snip20171028_1.png" alt="pic"></p>
+<p>主要语法：</p>
+<pre>
+element.scrollIntoView()//相当于scrollIntoView(true)
+element.scrollIntoView(Boolean)//参数为true的话，元素顶端和所在可视区的顶端平齐，
+为false的话元素底端和所在可视区的底端对齐
+element.scrollIntoView(scrollIntoViewOptions); // Object型参数，可选值有
+{
+    behavior: "auto"  | "instant" | "smooth",//立即滚动和平滑滚动
+    block:    "start" | "end", 不加这个属性的话，滚动位置是在可视区中间。加start的话，就和上一个true效果一样
+}
+</pre>
+
+<p>效果可以<a href="https://nicewahson.github.io/learn-note/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/scrollintoview/scrollintoview.html">去这里</a>看看<br>然后，搞事的来了。</p>
+        
+          <a class="article-more-a" href="/2017/10/28/scrollIntoview介绍/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/28/scrollIntoview介绍/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-react-redux之connect" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1023,91 +1102,6 @@ const store = createStore(
 
 
   
-    <article id="post-httpserver" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/24/httpserver/">httpserver</a>
-    </h1>
-  
-
-        
-        <a href="/2016/12/24/httpserver/" class="archive-article-date">
-  	<time datetime="2016-12-24T02:59:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>querystring.parse(str,[sep],[eq],[options]),str为转换的查询字符串,sep参数是该字符串中的分隔字符,默认为’&amp;’,eq是分配字符,默认为’=’,options是<br>一个对象,可以在该对象中用一个整数类型的maxKeys属性指定转换后的属性个数,设置为0时等同于不使用maxKeys<br>querystring.stringify(obj,[sep],[eq]),作用和parse相反<br>url.parse(urlStr,[parseQueryString]),将url字符串转换为一个对象,对象中有很多属性,比如query,为查询字符串,parseQueryString为布尔值,默认为false,<br>为true时表示转换后的对象中的query字符串同时转换为对象<br>url.format(urlobj),将url转换后的对象还原成字符串<br>url.resolve(from,to),与path.resolve()方法类似<br>response.writeHead(statusCode,[reasonPhrase],[headers]),第二个是状态码的描述信息,第三个是响应头<br>response.write(chunk,[encoding]),encoding默认为utf8<br>发送响应数据时，如果数据量过大或网络较慢，server会将数据缓存到内存中，然后在可以接收数据的时候将内存中的数据通过操作系统内核缓存区发送给对方<br>write方法返回布尔值，为true时表示数据是直接发送到内核缓存区，为false表示先存到内存中。<br>response.setTimeout(msecs,[callback]),设置响应超时时间，msecs是时间，callback是超时后的回调，如果不设置这个，或者不在timeout<br>事件指定回调函数，那么当响应超时时会自动关闭与客户端连接的端口。<br>var request = http.request(options,callback),options可以是字符串,如果是字符串,将自动使用url模块中的parse方法转换为一个对象。callback为<br>function(response){}，表示获取到返回的响应流时调用的回调函数。<br>每次调用request方法后，必须要加一个req.end()方法来结束本次请求。<br>也可以直接使用http.get(options,callback),仅限于get方法，而且在结束请求时不需要手动调用end()</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">http server</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/http//" class="article-tag-list-link color5">http</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/24/httpserver/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1266,6 +1260,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">api Date</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
             
             <div class="clearfix"></div>
