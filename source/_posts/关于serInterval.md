@@ -33,12 +33,12 @@ var countId = setInterval(function() {
 
 (function() {
   var start = Date.now();
-  for(i=1; i<=200000000;i++){
-    if(i==200000000){
-    console.log(i);
-  }
-}
-console.log(Date.now() - start);
+  for(var i=1; i&lt;=200000000;i++){
+    if(i===200000000){
+      console.log(i);
+    }
+  };
+  console.log(Date.now() - start);
 })();
 
 200000000
@@ -61,7 +61,7 @@ var countId = setInterval(function() {
 if(count == 0){
 (function() {
   var start = Date.now();
-  for(i=1; i<=200000000;i++){
+  for(i=1; i&lt;=200000000;i++){ // (md里面 小于号 & lt; 大于号 & gt;)
     if(i==200000000){
     console.log(i);
   }
