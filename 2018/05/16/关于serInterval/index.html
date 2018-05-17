@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Max&#39;s blog">
 <meta property="og:description" content="serInterval()表示以一定时间间隔去循环回调，指定的是’开始执行’之间的时间间隔，不考虑每次循环本身的时间。setInterval和serTimeout都表示的异步macroTask，也就是说在主线程空闲时候，如果时间到的话就去开始执行回调。对于serInterval，设定时间大于每次循环的时间，不会有问题；如果每次task的时间超出了指定时间间隔的话，就会有问题 对于浏览器来说，浏览器">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-17T00:37:24.219Z">
+<meta property="og:updated_time" content="2018-05-17T00:51:09.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于serInterval">
 <meta name="twitter:description" content="serInterval()表示以一定时间间隔去循环回调，指定的是’开始执行’之间的时间间隔，不考虑每次循环本身的时间。setInterval和serTimeout都表示的异步macroTask，也就是说在主线程空闲时候，如果时间到的话就去开始执行回调。对于serInterval，设定时间大于每次循环的时间，不会有问题；如果每次task的时间超出了指定时间间隔的话，就会有问题 对于浏览器来说，浏览器">
@@ -202,7 +202,26 @@ var countId = setInterval(function() {
 
 (function() {
   var start = Date.now();
-  for(i=1; i<=200000000;i++){ 2="" 1771="" 200000000="" if(i="=200000000){" console.log(i);="" }="" console.log(date.now()="" -="" start);="" })();="" time:="" 1457495719375="" 1457495720378="" 1457495721380="" 1457495722383="" 1457495723395="" 1457495724397="" [finished="" in="" 8.5s]="" 可以看到，主线程占用时间长的话，后续的任务会被延迟执行。="" <="" pre="">
+  for(var i=1; i&lt;=200000000;i++){
+    if(i===200000000){
+      console.log(i);
+    }
+  };
+  console.log(Date.now() - start);
+})();
+
+200000000
+1771
+2 time: 1457495719375
+2 time: 1457495720378
+2 time: 1457495721380
+2 time: 1457495722383
+2 time: 1457495723395
+2 time: 1457495724397
+[Finished in 8.5s]
+
+可以看到，主线程占用时间长的话，后续的任务会被延迟执行。
+</pre>
 
 <pre>
 
@@ -211,7 +230,15 @@ var countId = setInterval(function() {
 if(count == 0){
 (function() {
   var start = Date.now();
-  for(i=1; i<=200000000;i++){ if(i="=200000000){" console.log(i);="" }="" console.log(date.now()="" -="" start);="" })();="" if(count="">= 5){
+  for(i=1; i&lt;=200000000;i++){ // (md里面 小于号 & lt; 大于号 & gt;)
+    if(i==200000000){
+    console.log(i);
+  }
+}
+console.log(Date.now() - start);
+})();
+}
+  if(count >= 5){
     clearInterval(countId)
   }
   count++;
@@ -241,7 +268,7 @@ nodejs下：
 可以看到，当第一次循环所需时间比间隔时间长的话，浏览器环境下会持续不断按实际间隔加回调，同时第一次的执行时间直接导致后面的执行时间往后推，第一次的时间=第二次时间，第二次时间+133=第三次时间，466-400=66，加上133正好是200。就是说浏览器下所有的回调首先按固定时间间隔排好，如果某次回调执行时间长于间隔时间的话，就会把导致下次乃至更下次的回调执行时间往后推迟。这样就可能导致两次回调不存在时间间隔的情况。
 而nodejs下则不会这样。
 
-</=200000000;i++){></pre>
+</pre>
 对于上面这种不存在时间间隔的情况，可以改用setTimeout来解决，即在上面回调结束后指定时间继续下次的回调。
 <pre>
 setTimeout(function f() {
@@ -253,7 +280,7 @@ setTimeout(function f() {
 
 <p><a href="https://jeffjade.com/2016/01/10/2016-01-10-javaScript-setInterval/" target="_blank" rel="noopener">https://jeffjade.com/2016/01/10/2016-01-10-javaScript-setInterval/</a></p>
 <p><a href="http://www.laruence.com/2009/09/23/1089.html" target="_blank" rel="noopener">http://www.laruence.com/2009/09/23/1089.html</a></p>
-</=200000000;i++){></pre>
+
       
 
       
