@@ -333,19 +333,19 @@ setTimeout(function f() {
 
 
   
-    <article id="post-string的api" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-string和array的api" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/13/string的api/">string的api</a>
+      <a class="article-title" href="/2018/04/13/string和array的api/">string和array的api</a>
     </h1>
   
 
         
-        <a href="/2018/04/13/string的api/" class="archive-article-date">
+        <a href="/2018/04/13/string和array的api/" class="archive-article-date">
   	<time datetime="2018-04-13T01:55:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-13</time>
 </a>
         
@@ -353,7 +353,7 @@ setTimeout(function f() {
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h3><p>string.replace: function(regexp, replacement)</p>
+        <h3 id="String-prototype-replace"><a href="#String-prototype-replace" class="headerlink" title="String.prototype.replace"></a>String.prototype.replace</h3><p>string.replace: function(regexp, replacement)</p>
 <p>regexp可以使用/g修饰符。</p>
 <p>replacement可以是字符串，也可以是$符号用来指代替换内容。</p>
 <pre>
@@ -380,6 +380,19 @@ match是匹配到的内容，$n指分组，有多少分组就有多少$，最后
 
 // qa q a 2 qqqaaa
 </pre>
+
+<h3 id="Array-prototype-splice"><a href="#Array-prototype-splice" class="headerlink" title="Array.prototype.splice"></a>Array.prototype.splice</h3><p>splice可以是 添加 删除 替换</p>
+<p>splice(index, deleteCount, …) 从index位置开始 删除deleteCount个元素 再添加后面的参数</p>
+<pre>
+var arr = [2,3,4];
+arr.splice(1,0,6,7,8)
+
+arr // [2,6,7,8,3,4]  从下标1开始 删除0个元素 添加后面的6 7 8
+
+arr.splice(1,2,6,7,8)
+
+arr // [2,6,7,8] 从下标1开始 删除2个 添加后面的6 7 8
+</pre>
       
 
       
@@ -402,7 +415,7 @@ match是匹配到的内容，$n指分组，有多少分组就有多少$，最后
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/13/string的api/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/13/string和array的api/">展开全文 >></a>
         </p>
       
 
