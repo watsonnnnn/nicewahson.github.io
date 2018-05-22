@@ -1,10 +1,10 @@
 ---
-title: string的api
+title: string和array的api
 date: 2018-04-13 09:55:04
 tags: javascript api
 ---
 
-### replace
+### String.prototype.replace
 string.replace: function(regexp, replacement)
 
 regexp可以使用/g修饰符。
@@ -33,4 +33,20 @@ match是匹配到的内容，$n指分组，有多少分组就有多少$，最后
 })
 
 // qa q a 2 qqqaaa
+</pre>
+
+### Array.prototype.splice
+
+splice可以是 添加 删除 替换
+
+splice(index, deleteCount, ...) 从index位置开始 删除deleteCount个元素 再添加后面的参数
+<pre>
+var arr = [2,3,4];
+arr.splice(1,0,6,7,8)
+
+arr // [2,6,7,8,3,4]  从下标1开始 删除0个元素 添加后面的6 7 8
+
+arr.splice(1,2,6,7,8)
+
+arr // [2,6,7,8] 从下标1开始 删除2个 添加后面的6 7 8
 </pre>
