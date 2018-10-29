@@ -33,6 +33,7 @@ new Date('January 6, 2013');
 new Date(2013, 0, 1, 0, 0, 0, 0)
 // Tue Jan 01 2013 00:00:00 GMT+0800 (CST)
 </pre>
+<!-- more -->
 * 参数可以是负数，代表1970年元旦之前的时间<pre>
 new Date(-1378218728000)
 // Fri Apr 30 1926 17:27:52 GMT+0800 (CST)

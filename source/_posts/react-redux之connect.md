@@ -8,7 +8,7 @@ categories: redux
 ### connect
 代码比较多，抽象，慢慢看
 ![redux connect](redux-connect.png)
-
+<!-- more -->
 <pre>
 export function createConnect({
   connectHOC = connectAdvanced,

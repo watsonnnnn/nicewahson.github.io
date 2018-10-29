@@ -8,7 +8,7 @@ tags: git 版本
 git remote add childUpstream https://xxxx
 git subtree --prefix -S=放子git工程的文件夹 childUpstream 分支
 </pre>
-
+<!-- more -->
 ### git rebase, git merge
 merge之前
 ![merge前](beforemerge.jpg)

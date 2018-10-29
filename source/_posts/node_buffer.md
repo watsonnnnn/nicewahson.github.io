@@ -21,7 +21,7 @@ StringDecoder对象
 var StringDecoder=require('string_decoder').StringDecoder;
 decoder=new StringDecoder([encoding]);encoding默认u8
 decoder.write(buffer);将buffer对象中的数据转为字符串
-
+<!-- more -->
 Buffer对象和JSON对象转换
 JSON.stringify方法将buffer对象中保存的数据转换为一个字符串，再用JSON.parse方法将转换后的字符串还原为一个数组，这个数组可以用来构造Buffer对象
 

@@ -9,6 +9,7 @@ tags:
 
 MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢)
 ![pic](Snip20171028_1.png)
+<!-- more -->
 
 主要语法：
 <pre>
@@ -24,8 +25,6 @@ element.scrollIntoView(scrollIntoViewOptions); // Object型参数，可选值有
 
 效果可以[去这里](https://nicewahson.github.io/learn-note/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/scrollintoview/scrollintoview.html)看看
 然后，搞事的来了。
-
-<!-- more -->
 
 ### scrollIntoViewIfNeeded
 

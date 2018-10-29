@@ -11,11 +11,11 @@ flex-direction: row | row-reverse | column | column-reverse
 
 ![flex-direction](direction.jpg)
 
+<!-- more -->
+
 flex-wrap: nowrap | wrap | wrap-reverse
 
 ![flex-direction](wrap.png)
-
-<!-- more -->
 
 flex-flow: 上两个属性简写 flex-direction flex-wrap
 

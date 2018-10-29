@@ -13,8 +13,8 @@ server.getConnections(function(err,count){});方法获取当前连接数，可�
 server.close([callback]),指定服务器拒绝所有新的客户端连接,当现有连接全部关闭时触发close事件，调用close方法
 server.on('close',function(){...});
 socket.on('data',function(data){...}),socket对象可以被用来读取客户端发送的流数据，每次接收到客户端发送的流数据时触发data事件，当收到另一侧传来的数据时触发
-socket.pipe(destination,[options]),destination为一个可用于写入流数据的对象,options是一个对象，可以在对象中使用一个布尔类型的end属性，如果属性为true，当数据读完时立即结束写操作，为false
-时不结束，可以被继续写入新数据，默认为true
+socket.pipe(destination,[options]),destination为一个可用于写入流数据的对象,options是一个对象，可以在对象中使用一个布尔类型的end属性，如果属性为true，当数据读完时立即结束写操作，为false，为true时不结束，可以被继续写入新数据，默认为true
+<!-- more -->
 socket.setEncoding('utf8'),设置读取到的数据的编码格式
 socket.on('error',function(err){err.code...}),发生错误时触发此函数,同时,错误时应该调用socket.destroy()方法销毁该socket端口对象
 socket.end([data],[encoding]),服务端使用end关闭该客户端连接，客户端使用end关闭该服务端连接,data表示在关闭前向另一端追加发送的数据,可以是buffer，也可以是字符串
