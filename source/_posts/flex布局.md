@@ -36,7 +36,7 @@ align-content: 多行元素对齐方式 flex-start | flex-end | center | space-a
 
 order: integer 排序 默认为0 越小越靠前排列
 ***
-flex-grow: integer 放大比例 默认为0；如果剩余空间为 x，三个元素的 flex-grow 分别为 a，b，c。设 sum 为 a + b + c。那么三个元素将得到剩余空间分别是 x * a / sum, x * b / sum, x * c / sum。
+flex-grow: integer 放大比例 默认为0，存在剩余空间也不放大；如果剩余空间为 x，三个元素的 flex-grow 分别为 a，b，c。设 sum 为 a + b + c。那么三个元素将得到剩余空间分别是 x * a / sum, x * b / sum, x * c / sum。
 
 父元素宽度 500px，三个子元素的 width 分别为 100px，150px，100px。
 
