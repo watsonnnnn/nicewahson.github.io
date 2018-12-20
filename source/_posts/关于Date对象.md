@@ -59,4 +59,12 @@ Date.now()
 Date.now方法返回当前时间距离时间零点（1970年1月1日 00:00:00 UTC）的毫秒数，相当于 Unix 时间戳乘以1000
 
 Date.parse()
+```
+new Date().getDay() // 返回星期几
 
+getDate() // 返回几号
+
+new Date().setDate(num); // num是整数，表示设置为一个月的几号，为1就是设置为当月的1号 0就是上个月的最后一天
+
+getMonth() // 返回month 从0开始 所以真实月份要+1
+```
