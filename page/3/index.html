@@ -345,8 +345,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>net模块创建tcp服务器<br>var net=require(‘net’),var server=net.createServer([options],[connectionListener]),connectionListener为function(socket){}是建立连接时的回调函数,socket是tcp服务器监听的socket端口对象<br>server.listen(port,[host],[backlog],[callback]),port是端口号，为0时分配随机端口，tcp服务器会监听来自这个端口的连接，host是主机，忽略的话则监听任意ipv4的客户端连接，backlog指定位于<br>等待队列中的客户端连接的最大数量，超过后tcp服务器将拒绝来自新的客户端请求，默认为511，服务器开始监听时触发listening事件，触发callback方法。<br>server.address()查看服务器所监听的地址信息.<br>server.getConnections(function(err,count){});方法获取当前连接数，可以设置服务器的最大连接数server.maxConnections<br>server.close([callback]),指定服务器拒绝所有新的客户端连接,当现有连接全部关闭时触发close事件，调用close方法<br>server.on(‘close’,function(){…});<br>socket.on(‘data’,function(data){…}),socket对象可以被用来读取客户端发送的流数据，每次接收到客户端发送的流数据时触发data事件，当收到另一侧传来的数据时触发<br>socket.pipe(destination,[options]),destination为一个可用于写入流数据的对象,options是一个对象，可以在对象中使用一个布尔类型的end属性，如果属性为true，当数据读完时立即结束写操作，为false<br>时不结束，可以被继续写入新数据，默认为true<br>socket.setEncoding(‘utf8’),设置读取到的数据的编码格式<br>socket.on(‘error’,function(err){err.code…}),发生错误时触发此函数,同时,错误时应该调用socket.destroy()方法销毁该socket端口对象<br>socket.end([data],[encoding]),服务端使用end关闭该客户端连接，客户端使用end关闭该服务端连接,data表示在关闭前向另一端追加发送的数据,可以是buffer，也可以是字符串<br>创建tcp客户端<br>var client = new net.Socket([options]),<br>client.setEncoding(‘utf8’),client是一个socket对象,在需要往客户端或服务器传数据时，可以使用socket.write(data,[encoding],[callback]),callback是数据写入完毕时的回调，没有参数。<br>client.end(‘end’),表示关闭连接时追加数据。<br>socket.on(‘end’,function(){<br>    server.unref(‘客户端连接关闭时关闭服务器’);<br>})<br>socket.on(‘close’,function(has_error){<br>    if(has_error)<br>        server.unref(‘客户端连接关闭时关闭服务器’);<br>});监听close事件，与server.close()方法不同。<br>socket.setKeepAlive([enable],[initialDelay]),第一个参数表示是否启用探测机制，默认为false，第二个参数是探测间隔时间，隔多久探测一次对方机器，默认为0<br>net.isIP(input),用于判断一个字符串是否是一个ip地址，不是ip的话返回0，是ipv4的话返回4，ipv6的话返回6<br>net.isIPv4(input),判断字符串是否是一个ipv4地址<br>net.isIPv6(input),判断是否是ipv6地址</p>
-
+        <p>net模块创建tcp服务器<br>var net=require(‘net’),var server=net.createServer([options],[connectionListener]),connectionListener为function(socket){}是建立连接时的回调函数,socket是tcp服务器监听的socket端口对象<br>server.listen(port,[host],[backlog],[callback]),port是端口号，为0时分配随机端口，tcp服务器会监听来自这个端口的连接，host是主机，忽略的话则监听任意ipv4的客户端连接，backlog指定位于<br>等待队列中的客户端连接的最大数量，超过后tcp服务器将拒绝来自新的客户端请求，默认为511，服务器开始监听时触发listening事件，触发callback方法。<br>server.address()查看服务器所监听的地址信息.<br>server.getConnections(function(err,count){});方法获取当前连接数，可以设置服务器的最大连接数server.maxConnections<br>server.close([callback]),指定服务器拒绝所有新的客户端连接,当现有连接全部关闭时触发close事件，调用close方法<br>server.on(‘close’,function(){…});<br>socket.on(‘data’,function(data){…}),socket对象可以被用来读取客户端发送的流数据，每次接收到客户端发送的流数据时触发data事件，当收到另一侧传来的数据时触发<br>socket.pipe(destination,[options]),destination为一个可用于写入流数据的对象,options是一个对象，可以在对象中使用一个布尔类型的end属性，如果属性为true，当数据读完时立即结束写操作，为false，为true时不结束，可以被继续写入新数据，默认为true<br></p>
+        
+          <a class="article-more-a" href="/2016/12/10/tcp和udp通信/#more">more >></a>
+        
       
 
       
@@ -410,19 +412,19 @@
 
 
   
-    <article id="post-读写文件续" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-读写文件2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/读写文件续/">读写文件续</a>
+      <a class="article-title" href="/2016/12/06/读写文件2/">读写文件2</a>
     </h1>
   
 
         
-        <a href="/2016/12/06/读写文件续/" class="archive-article-date">
+        <a href="/2016/12/06/读写文件2/" class="archive-article-date">
   	<time datetime="2016-12-06T03:20:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-06</time>
 </a>
         
@@ -430,16 +432,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>var fs=require(‘fs’); //同步读取，读取配置文件时可以使用<br>fs.readFileSync(‘./index.html’,’utf-8’);<br>fs.readFile(‘./index.html’,’utf-8’,function(err,data){<br>                    console.log(data);//操作完毕后打印结果<br>                    }) //异步读取<br>fs.readFile(filename,[options],callback);如果不在options参数中指定encoding参数，那么读取的结果得到的是一个二进制buffer对象。options中可以用的属性,flag(以何种方式读或是写),encoding<br>fs.writeFile(filename,data,[options],callback);options中可以用的属性，flag,mode(读写权限),encoding(可指定属性值为’utf-8’,’ascii’,’base64’,当data为buffer对象时该属性自动忽略)<br>fs.appendFile(…),参数同上，在文件底部追加数据，和上面不同的是，options中的flag属性默认值为’a’,表示向文件底部追加，如果文件不存在，创建文件</p>
-<p>从指定位置读写文件<br>开始读写之前,先fs.open(filename,flags,[mode],function(err,fd){…}),fd是文件描述符<br>然后<br>fs.read(fd,buffer,offset,length,position,callback),<br>参数： fd:open方法返回的文件描述符，buffer是一个Buffer对象，表示将文件数据读取到哪个缓冲区，offset指定向缓冲区写入数据时的开始写入位置，length参数用于指定从文件中读取的字节数，<br>position用于指定读取文件时的开始位置(以字节为单位),callback指定,function(err,bytesRead,buffer){//bytesRead参数值代表实际读取的字节数，buffer为被读取的缓存区对象}</p>
-<p>如果position为null,表示从当前位置开始继续读取(前一次读取的开始位置+字节数)，应该写在上一次read方法的回调里</p>
-<p>write方法：fs.write(fd,buffer,offset,length,position,callback)<br>buffer为被写入的缓冲区，offset为指定从缓冲区中读取数据时的开始位置，length为写入的字节数，position为写入文件时的开始位置，callback:function(err,written,buffer),written代表实际写入字节数<br>position为null时，表示从当前位置开始继续写入。当想要向文件中追加数据时，需要在open方法中设置flag为’a’,只是一次的写入可以是’w’</p>
-<p>在写完之后，可以调用close方法，fs.close(fd,[callback]),callback中参数为err</p>
-<p>write方法是将数据写入到内存，再将内存中数据写入到文件，因此当写了一些数据，并不代表内存缓冲区中已经空了，可能还有数据，这时候调用close方法会有数据丢失的问题，这时候需要一个方法<br>fs.fsync(fd,[callback])，文件同步操作,调用close方法后再进行调用将内存缓冲区的数据全部写到文件中</p>
-<p>fs.mkdir(path,[mode],callback),path是被创建的目录的完整路径及目录名,callback是创建完成时的回调<br>fs.readdir(path,callback),callback格式function(err,files){}<br>fs.stat(path,callback),fs.lstat(path,callback),查看文件或目录信息,callback为function(err,stats),stats是一个fs.Stats对象<br>检查文件或目录是否存在，fs.exists(path,callback),path是全路径,callback为function(exists){},exists是true或false<br>获取文件或目录绝对路径，fs.realpath(path,[cache],callback),cache是一个对象，存放一些预先指定的路径,function(err,resolvedPath){},后一个参数是全路径<br>var cache = {‘/etc’:’/private/etc’};fs.realpath(‘/etc/passwd’,cache,function(err,resolvedPath){})</p>
-<p>修改文件访问时间和修改时间<br>fs.utimes(path,atime,mtime,callback),atime是指定修改后的访问时间,mtime是修改后的修改时间<br>修改文件或目录的读写权限<br>fs.chmod(path,mode,callback),chmod: user group other,read-write-excute<br>移动文件或目录<br>fs.rename(oldpath,newpath,callback),oldpath是被移动文件或目录的完整路径及文件或目录名，newpath是移动后的完整路径及文件或目录名<br>截断文件<br>fs.truncate(path,len,callback),len是截断后的文件大小(单位是字节数)<br>删除空目录<br>fs.rmdir(path,callback)<br>监视文件或目录<br>fs.watchFile(filename,[options],listener),文件名filename，options是一个对象，可以用一个persistent:true(false)表示指定当指定了被监视的文件后是否停止当前正在运行的程序，也可以是interval:xxx，整数，<br>表示多少时间监视一次,callback为function(curr,prev){}<br>fs.unwatch(filename,[listener]),取消监视<br>ReadStream读取文件<br>fs.createReadStream(path,[options]),返回一个file文件输入流,在这里对其添加事件回调<br>var file = fs.createReadStream(‘./a.txt’,{start:3,end:12});<br>file.on(‘open’,function(fd){console.log(‘文件打开’)});<br>file.on(‘data’,function(data){console.log(‘文件读到数据’)});<br>WriteStream写入文件<br>var out = fs.createWriteStream(path,[options])，返回一个输出流，out.write(data,[encoding],[callback]),该方法返回一个bool值，表示缓存区中是否已经满，满了为false<br>复制文件方法<br>pipe(destination,[options]),destination是写入流数据的对象，options对象中可以使用一个end属性，为true的话表示读完数据后关闭文件，false的话则不关闭，还可以继续写入，默认为true</p>
-<p>path模块<br>normalize(path)将非标准路径字符串转换为标准字符串<br>join([path1],[path2]…),将多个参数值字符串结合为一个路径字符串<br>resolve解析路径<br>relative(from,to)获取两个相对路径之间的关系<br>dirname(path),获取路径中的目录名<br>basename(path,[ext]),获取路径中的文件名，path为完整路径，ext为可选参数，用于在方法返回的文件名中去除该文件的扩展名<br>extname(path),获取文件扩展名</p>
-
+        <p>var fs=require(‘fs’); //同步读取，读取配置文件时可以使用<br>fs.readFileSync(‘./index.html’,’utf-8’);<br>fs.readFile(‘./index.html’,’utf-8’,function(err,data){<br>                    console.log(data);//操作完毕后打印结果<br>                    }) //异步读取<br>fs.readFile(filename,[options],callback);如果不在options参数中指定encoding参数，那么读取的结果得到的是一个二进制buffer对象。options中可以用的属性,flag(以何种方式读或是写),encoding<br>fs.writeFile(filename,data,[options],callback);options中可以用的属性，flag,mode(读写权限),encoding(可指定属性值为’utf-8’,’ascii’,’base64’,当data为buffer对象时该属性自动忽略)<br>fs.appendFile(…),参数同上，在文件底部追加数据，和上面不同的是，options中的flag属性默认值为’a’,表示向文件底部追加，如果文件不存在，创建文件<br></p>
+        
+          <a class="article-more-a" href="/2016/12/06/读写文件2/#more">more >></a>
+        
       
 
       
@@ -473,7 +469,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/06/读写文件续/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/12/06/读写文件2/">展开全文 >></a>
         </p>
       
 
@@ -503,19 +499,19 @@
 
 
   
-    <article id="post-读写文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-读写文件1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/21/读写文件/">读写文件</a>
+      <a class="article-title" href="/2016/11/21/读写文件1/">读写文件1</a>
     </h1>
   
 
         
-        <a href="/2016/11/21/读写文件/" class="archive-article-date">
+        <a href="/2016/11/21/读写文件1/" class="archive-article-date">
   	<time datetime="2016-11-21T10:33:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-21</time>
 </a>
         
@@ -558,7 +554,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/21/读写文件/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/11/21/读写文件1/">展开全文 >></a>
         </p>
       
 
@@ -609,11 +605,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>构造buffer<br>new Buffer(size),size为缓存区大小<br>buf.fill(value,[offset],[end]),此方法对buffer进行初始化,value必填，表示需要被写入的数值，第二个参数表示从第几个参数写入，<br>默认为0，第三个参数表示写入到第几个字节处，默认为buffer对象大小，即书写到缓存区底部<br>new Buffer(array),array是指定数值数组 eg: newBuff([1,2,3])//(Buffer 00 01 02)<br>new Buffer(str,[encoding]),缓冲区中存放的是原字符串的十六进制表现形式，使用字符串初始化缓冲区，第二个参数为指定文字进行编码，不同编码字符串生成缓冲区对象，<br>ascii编码和u8编码生成的是相同的，其他的是不同的，也就会把不同的数据放在缓冲区。<br>缓冲区对象存在length属性，可以获取长度，也可以使用下标形式获取制定位置的值。</p>
-<p>Buffer对象与字符串对象相互转换<br>toString方法，buf.toString([encoding],[start],[end]),第一个参数默认u8，二三表示转换的起始终止位置<br>write方法向已创建buffer对象写入字符串，buf.write(string,[offset],[length],[encoding]),第一个参数指定写入内容，offset和length参数指定字符串转为字节数据后的<br>写入位置，offset是下标。书写位置从第1+offset个字节开始到offset+length个字节为止。第四个参数编码默认u8。<br>StringDecoder对象<br>var StringDecoder=require(‘string_decoder’).StringDecoder;<br>decoder=new StringDecoder([encoding]);encoding默认u8<br>decoder.write(buffer);将buffer对象中的数据转为字符串</p>
-<p>Buffer对象和JSON对象转换<br>JSON.stringify方法将buffer对象中保存的数据转换为一个字符串，再用JSON.parse方法将转换后的字符串还原为一个数组，这个数组可以用来构造Buffer对象</p>
-<p>复制缓存数据，将一个buffer对象中以保存的二进制数据复制到另一个buffer对象中。<br>buf.copy(targetBuffer,[targetStart],[sourceStart],[sourceEnd]),a.copy(b,10),一直复制到b的末尾，不会再继续复制。</p>
-<p>Buffer的类方法<br>isBuffer方法判断一个对象是否是一个Buffer对象，Buffer.isBuffer(obj)<br>byteLength用于计算指定字符串的字节数，Buffer.byteLength(string,[encoding])<br>concat方法将多个buffer对象连接起来，Buffer.concat(list,[totalLength]),list代表多个buffer对象形成的数组，第二个参数用于指定拼接后生成的buffer对象的长度<br>isEncoding方法用于检测一个字符串是否是一个有效的编码格式字符串，Buffer.isEncoding(encoding);</p>
-
+<p>Buffer对象与字符串对象相互转换<br>toString方法，buf.toString([encoding],[start],[end]),第一个参数默认u8，二三表示转换的起始终止位置<br>write方法向已创建buffer对象写入字符串，buf.write(string,[offset],[length],[encoding]),第一个参数指定写入内容，offset和length参数指定字符串转为字节数据后的<br>写入位置，offset是下标。书写位置从第1+offset个字节开始到offset+length个字节为止。第四个参数编码默认u8。<br>StringDecoder对象<br>var StringDecoder=require(‘string_decoder’).StringDecoder;<br>decoder=new StringDecoder([encoding]);encoding默认u8<br>decoder.write(buffer);将buffer对象中的数据转为字符串<br></p>
+        
+          <a class="article-more-a" href="/2016/11/21/node_buffer/#more">more >></a>
+        
       
 
       

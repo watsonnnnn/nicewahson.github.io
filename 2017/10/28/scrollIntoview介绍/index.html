@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://nicewahson.github.io">
   <title>scrollIntoview介绍 | Max&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="scrollIntoView最近看到一些自写的滚动效果，然后想起了scrollInfoView这个api，就又拿出来搞一番。 MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢) 主要语法：  element.scrollIntoView()//相当于scrollIntoView(true) element.scrollIntoView(Boolean)//">
+  <meta name="description" content="scrollIntoView最近看到一些自写的滚动效果，然后想起了scrollInfoView这个api，就又拿出来搞一番。 MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="scrollIntoview介绍">
 <meta property="og:url" content="http://nicewahson.github.io/2017/10/28/scrollIntoview介绍/index.html">
 <meta property="og:site_name" content="Max&#39;s blog">
-<meta property="og:description" content="scrollIntoView最近看到一些自写的滚动效果，然后想起了scrollInfoView这个api，就又拿出来搞一番。 MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢) 主要语法：  element.scrollIntoView()//相当于scrollIntoView(true) element.scrollIntoView(Boolean)//">
+<meta property="og:description" content="scrollIntoView最近看到一些自写的滚动效果，然后想起了scrollInfoView这个api，就又拿出来搞一番。 MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢)">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://nicewahson.github.io/2017/10/28/scrollIntoview介绍/Snip20171028_1.png">
-<meta property="og:updated_time" content="2018-04-29T13:52:16.827Z">
+<meta property="og:updated_time" content="2018-12-20T15:42:19.038Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scrollIntoview介绍">
-<meta name="twitter:description" content="scrollIntoView最近看到一些自写的滚动效果，然后想起了scrollInfoView这个api，就又拿出来搞一番。 MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢) 主要语法：  element.scrollIntoView()//相当于scrollIntoView(true) element.scrollIntoView(Boolean)//">
+<meta name="twitter:description" content="scrollIntoView最近看到一些自写的滚动效果，然后想起了scrollInfoView这个api，就又拿出来搞一番。 MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢)">
 <meta name="twitter:image" content="http://nicewahson.github.io/2017/10/28/scrollIntoview介绍/Snip20171028_1.png">
   
     <link rel="alternative" href="/atom.xml" title="Max&#39;s blog" type="application/atom+xml">
@@ -177,7 +177,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="scrollIntoView"><a href="#scrollIntoView" class="headerlink" title="scrollIntoView"></a>scrollIntoView</h3><p>最近看到一些自写的滚动效果，然后想起了scrollInfoView这个api，就又拿出来搞一番。</p>
-<p>MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢)<br><img src="Snip20171028_1.png" alt="pic"></p>
+<p>MDN官方上说这个功能是实验性阶段，不谈移动端，但是看了看caniuse还是一片绿(不喜欢)<br><img src="/2017/10/28/scrollIntoview介绍/Snip20171028_1.png" alt="pic"><br><a id="more"></a></p>
 <p>主要语法：</p>
 <pre>
 element.scrollIntoView()//相当于scrollIntoView(true)
@@ -191,7 +191,6 @@ element.scrollIntoView(scrollIntoViewOptions); // Object型参数，可选值有
 </pre>
 
 <p>效果可以<a href="https://nicewahson.github.io/learn-note/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/scrollintoview/scrollintoview.html">去这里</a>看看<br>然后，搞事的来了。</p>
-<a id="more"></a>
 <h3 id="scrollIntoViewIfNeeded"><a href="#scrollIntoViewIfNeeded" class="headerlink" title="scrollIntoViewIfNeeded"></a>scrollIntoViewIfNeeded</h3><p>和上面的一样，也是来进行元素滚动的，但是有点小区别，上面的当元素在可视区时，还是会进行指定的滚动，而这个只有元素不在可视区才会进行滚动。不过用法上还是很简单的</p>
 <pre>
 element.scrollIntoViewIfNeeded()//也是相当于默认传了个true

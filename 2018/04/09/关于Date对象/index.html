@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Max&#39;s blog">
 <meta property="og:description" content="1.构造函数直接调用无效，即使传参。 2.new进行构造时  new Date(); new Date(value); new Date(dateString); new Date(year, month[, day[, hour[, minutes[, seconds[, milliseconds]]]]]); 年：使用四位数年份，比如2000。如果写成两位数或个位数，则加上1900，即10代表">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-29T13:52:16.831Z">
+<meta property="og:updated_time" content="2018-12-20T15:46:14.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于Date对象">
 <meta name="twitter:description" content="1.构造函数直接调用无效，即使传参。 2.new进行构造时  new Date(); new Date(value); new Date(dateString); new Date(year, month[, day[, hour[, minutes[, seconds[, milliseconds]]]]]); 年：使用四位数年份，比如2000。如果写成两位数或个位数，则加上1900，即10代表">
@@ -204,6 +204,7 @@ new Date('January 6, 2013');
 new Date(2013, 0, 1, 0, 0, 0, 0)
 // Tue Jan 01 2013 00:00:00 GMT+0800 (CST)
 </pre>
+<a id="more"></a>
 * 参数可以是负数，代表1970年元旦之前的时间<pre>
 new Date(-1378218728000)
 // Fri Apr 30 1926 17:27:52 GMT+0800 (CST)
@@ -225,7 +226,7 @@ new Date('15, Feberuary, 2013')
 <p>日期类型相加时返回两个字符串连接后的新字符串，相减时返回间隔毫秒数。</p>
 <p>Date.now()</p>
 <p>Date.now方法返回当前时间距离时间零点（1970年1月1日 00:00:00 UTC）的毫秒数，相当于 Unix 时间戳乘以1000</p>
-<p>Date.parse()</p>
+<p>Date.parse()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">new Date().getDay() // 返回星期几</span><br><span class="line"></span><br><span class="line">getDate() // 返回几号</span><br><span class="line"></span><br><span class="line">new Date().setDate(num); // num是整数，表示设置为一个月的几号，为1就是设置为当月的1号 0就是上个月的最后一天</span><br><span class="line"></span><br><span class="line">getMonth() // 返回month 从0开始 所以真实月份要+1</span><br></pre></td></tr></table></figure></p>
 
       
 

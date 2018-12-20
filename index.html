@@ -188,99 +188,9 @@ setInterval(function(){
 
 等到第二行语句运行完成以后，立刻连续输出三个2，然后开始每隔1000毫秒，输出一个2。也就是说，setIntervel具有累积效应，如果某个操作特别耗时，超过了setInterval的时间间隔，排在后面的操作会被累积起来，然后在很短的时间内连续触发，这可能或造成性能问题（比如集中发出Ajax请求）
 </pre>
-
-<p>但是对于nodejs来说，就不会发生累积。setInterval 在准备把回调函数加入到事件队列的时候，会判断队列中是否还有未执行的回调，如果有的话，它就不会再往队列中添加回调函数</p>
-<pre>
-var count = 0;
-var countId = setInterval(function() {
-  if(count >= 5){
-    clearInterval(countId)
-  }
-  count++;
-  console.log(2+ " time: " +Date.now());
-}, 1000);
-
-(function() {
-  var start = Date.now();
-  for(var i=1; i&lt;=200000000;i++){
-    if(i===200000000){
-      console.log(i);
-    }
-  };
-  console.log(Date.now() - start);
-})();
-
-200000000
-1771
-2 time: 1457495719375
-2 time: 1457495720378
-2 time: 1457495721380
-2 time: 1457495722383
-2 time: 1457495723395
-2 time: 1457495724397
-[Finished in 8.5s]
-
-可以看到，主线程占用时间长的话，后续的任务会被延迟执行。
-</pre>
-
-<pre>
-
-var count = 0;
-var countId = setInterval(function() {
-if(count == 0){
-(function() {
-  var start = Date.now();
-  for(i=1; i&lt;=200000000;i++){ // (md里面 小于号 & lt; 大于号 & gt;)
-    if(i==200000000){
-    console.log(i);
-  }
-}
-console.log(Date.now() - start);
-})();
-}
-  if(count >= 5){
-    clearInterval(countId)
-  }
-  count++;
-  console.log(2+ " time: " +Date.now());
-}, 200);
-
-浏览器下:
-200000000
-VM1649:12 466
-VM1649:19 2 time: 1526464501571
-VM1649:19 2 time: 1526464501572
-VM1649:19 2 time: 1526464501705
-VM1649:19 2 time: 1526464501905
-VM1649:19 2 time: 1526464502105
-VM1649:19 2 time: 1526464502305
-
-nodejs下：
-200000000
-447
-2 time: 1526464483584
-2 time: 1526464483784
-2 time: 1526464483985
-2 time: 1526464484186
-2 time: 1526464484387
-2 time: 1526464484588
-
-可以看到，当第一次循环所需时间比间隔时间长的话，浏览器环境下会持续不断按实际间隔加回调，同时第一次的执行时间直接导致后面的执行时间往后推，第一次的时间=第二次时间，第二次时间+133=第三次时间，466-400=66，加上133正好是200。就是说浏览器下所有的回调首先按固定时间间隔排好，如果某次回调执行时间长于间隔时间的话，就会把导致下次乃至更下次的回调执行时间往后推迟。这样就可能导致两次回调不存在时间间隔的情况。
-而nodejs下则不会这样。
-
-</pre>
-对于上面这种不存在时间间隔的情况，可以改用setTimeout来解决，即在上面回调结束后指定时间继续下次的回调。
-<pre>
-setTimeout(function f() {
-  //处理中 ...
-  setTimeout(f, interval);
-}, interval);
-</pre>
-
-
-<p><a href="https://jeffjade.com/2016/01/10/2016-01-10-javaScript-setInterval/" target="_blank" rel="noopener">https://jeffjade.com/2016/01/10/2016-01-10-javaScript-setInterval/</a></p>
-<p><a href="http://www.laruence.com/2009/09/23/1089.html" target="_blank" rel="noopener">http://www.laruence.com/2009/09/23/1089.html</a></p>
-
+        
+          <a class="article-more-a" href="/2018/05/16/关于serInterval/#more">more >></a>
+        
       
 
       
@@ -370,29 +280,9 @@ $$:指美元符号
 // "qwersa-qwersaom"
 
 </pre>
-replacement也可以是函数，function(match, $1, $2,..., index, string){}
-match是匹配到的内容，$n指分组，有多少分组就有多少$，最后的index指内容的起始下标，string指原字符串。
-<pre>
-'qqqaaa'.replace(/(q)(a)/g,function(m,s1,s2,index,str){
-    console.log(m,s1,s2,index, str)
-    return 'w';
-})
-
-// qa q a 2 qqqaaa
-</pre>
-
-<h3 id="Array-prototype-splice"><a href="#Array-prototype-splice" class="headerlink" title="Array.prototype.splice"></a>Array.prototype.splice</h3><p>splice可以是 添加 删除 替换</p>
-<p>splice(index, deleteCount, …) 从index位置开始 删除deleteCount个元素 再添加后面的参数</p>
-<pre>
-var arr = [2,3,4];
-arr.splice(1,0,6,7,8)
-
-arr // [2,6,7,8,3,4]  从下标1开始 删除0个元素 添加后面的6 7 8
-
-arr.splice(1,2,6,7,8)
-
-arr // [2,6,7,8] 从下标1开始 删除2个 添加后面的6 7 8
-</pre>
+        
+          <a class="article-more-a" href="/2018/04/13/string和array的api/#more">more >></a>
+        
       
 
       
@@ -466,9 +356,7 @@ arr // [2,6,7,8] 从下标1开始 删除2个 添加后面的6 7 8
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><h2 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h2><p>flex-direction: row | row-reverse | column | column-reverse</p>
-<p><img src="direction.jpg" alt="flex-direction"></p>
-<p>flex-wrap: nowrap | wrap | wrap-reverse</p>
-<p><img src="wrap.png" alt="flex-direction"></p>
+<p><img src="/2018/04/11/flex布局/direction.jpg" alt="flex-direction"></p>
         
           <a class="article-more-a" href="/2018/04/11/flex布局/#more">more >></a>
         
@@ -573,29 +461,9 @@ new Date('January 6, 2013');
 new Date(2013, 0, 1, 0, 0, 0, 0)
 // Tue Jan 01 2013 00:00:00 GMT+0800 (CST)
 </pre>
-* 参数可以是负数，代表1970年元旦之前的时间<pre>
-new Date(-1378218728000)
-// Fri Apr 30 1926 17:27:52 GMT+0800 (CST)
-</pre>
-* 只要是能被Date.parse()方法解析的字符串，都可以当作参数<pre>
-new Date('2013-2-15')
-new Date('2013/2/15')
-new Date('02/15/2013')
-new Date('2013-FEB-15')
-new Date('FEB, 15, 2013')
-new Date('FEB 15, 2013')
-new Date('Feberuary, 15, 2013')
-new Date('Feberuary 15, 2013')
-new Date('15 Feb 2013')
-new Date('15, Feberuary, 2013')
-// Fri Feb 15 2013 00:00:00 GMT+0800 (CST)
-</pre>
-
-<p>日期类型相加时返回两个字符串连接后的新字符串，相减时返回间隔毫秒数。</p>
-<p>Date.now()</p>
-<p>Date.now方法返回当前时间距离时间零点（1970年1月1日 00:00:00 UTC）的毫秒数，相当于 Unix 时间戳乘以1000</p>
-<p>Date.parse()</p>
-
+        
+          <a class="article-more-a" href="/2018/04/09/关于Date对象/#more">more >></a>
+        
       
 
       
@@ -668,14 +536,10 @@ new Date('15, Feberuary, 2013')
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="添加子公共项目："><a href="#添加子公共项目：" class="headerlink" title="添加子公共项目："></a>添加子公共项目：</h3><pre>
-git remote add childUpstream https://xxxx
-git subtree --prefix -S=放子git工程的文件夹 childUpstream 分支
-</pre>
-
-<h3 id="git-rebase-git-merge"><a href="#git-rebase-git-merge" class="headerlink" title="git rebase, git merge"></a>git rebase, git merge</h3><p>merge之前<br><img src="beforemerge.jpg" alt="merge前"><br>在master上merge，根据696和8ab和两个分支的共同祖先e38进行三方合并，最后生成新commit<br><img src="aftermerge.jpg" alt="merge后"></p>
-<p>rebase之前<br><img src="beforerebase.jpg" alt="rebase之前"><br>在master上git rebase dev，会把rebase的分支上内容拉下来，再把本次master上特有的全部commit都提取出来顶到最上面，生成新的commit，每个commit有一个冲突，也就可能多次冲突。相当于把master上的commit复制一遍到了dev上，但是还是处在master分支。<br><img src="afterrebase.jpg" alt="rebase之后"></p>
-
+        <h3 id="添加子公共项目："><a href="#添加子公共项目：" class="headerlink" title="添加子公共项目："></a>添加子公共项目：</h3><p><pre><br>git remote add childUpstream <a href="https://xxxx" target="_blank" rel="noopener">https://xxxx</a><br>git subtree –prefix -S=放子git工程的文件夹 childUpstream 分支<br></pre><br></p>
+        
+          <a class="article-more-a" href="/2018/04/09/git命令小结/#more">more >></a>
+        
       
 
       

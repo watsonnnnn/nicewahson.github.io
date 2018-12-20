@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="http://nicewahson.github.io">
   <title>git命令小结 | Max&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="添加子公共项目： git remote add childUpstream https://xxxx git subtree --prefix -S=放子git工程的文件夹 childUpstream 分支   git rebase, git mergemerge之前在master上merge，根据696和8ab和两个分支的共同祖先e38进行三方合并，最后生成新commit rebase之前在ma">
+  <meta name="description" content="添加子公共项目：git remote add childUpstream https://xxxxgit subtree –prefix -S=放子git工程的文件夹 childUpstream 分支">
 <meta name="keywords" content="git 版本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git命令小结">
 <meta property="og:url" content="http://nicewahson.github.io/2018/04/09/git命令小结/index.html">
 <meta property="og:site_name" content="Max&#39;s blog">
-<meta property="og:description" content="添加子公共项目： git remote add childUpstream https://xxxx git subtree --prefix -S=放子git工程的文件夹 childUpstream 分支   git rebase, git mergemerge之前在master上merge，根据696和8ab和两个分支的共同祖先e38进行三方合并，最后生成新commit rebase之前在ma">
+<meta property="og:description" content="添加子公共项目：git remote add childUpstream https://xxxxgit subtree –prefix -S=放子git工程的文件夹 childUpstream 分支">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://nicewahson.github.io/2018/04/09/git命令小结/beforemerge.jpg">
 <meta property="og:image" content="http://nicewahson.github.io/2018/04/09/git命令小结/aftermerge.jpg">
 <meta property="og:image" content="http://nicewahson.github.io/2018/04/09/git命令小结/beforerebase.jpg">
 <meta property="og:image" content="http://nicewahson.github.io/2018/04/09/git命令小结/afterrebase.jpg">
-<meta property="og:updated_time" content="2018-04-29T13:52:16.823Z">
+<meta property="og:updated_time" content="2018-12-20T15:42:19.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git命令小结">
-<meta name="twitter:description" content="添加子公共项目： git remote add childUpstream https://xxxx git subtree --prefix -S=放子git工程的文件夹 childUpstream 分支   git rebase, git mergemerge之前在master上merge，根据696和8ab和两个分支的共同祖先e38进行三方合并，最后生成新commit rebase之前在ma">
+<meta name="twitter:description" content="添加子公共项目：git remote add childUpstream https://xxxxgit subtree –prefix -S=放子git工程的文件夹 childUpstream 分支">
 <meta name="twitter:image" content="http://nicewahson.github.io/2018/04/09/git命令小结/beforemerge.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Max&#39;s blog" type="application/atom+xml">
@@ -180,13 +180,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="添加子公共项目："><a href="#添加子公共项目：" class="headerlink" title="添加子公共项目："></a>添加子公共项目：</h3><pre>
-git remote add childUpstream https://xxxx
-git subtree --prefix -S=放子git工程的文件夹 childUpstream 分支
-</pre>
-
-<h3 id="git-rebase-git-merge"><a href="#git-rebase-git-merge" class="headerlink" title="git rebase, git merge"></a>git rebase, git merge</h3><p>merge之前<br><img src="beforemerge.jpg" alt="merge前"><br>在master上merge，根据696和8ab和两个分支的共同祖先e38进行三方合并，最后生成新commit<br><img src="aftermerge.jpg" alt="merge后"></p>
-<p>rebase之前<br><img src="beforerebase.jpg" alt="rebase之前"><br>在master上git rebase dev，会把rebase的分支上内容拉下来，再把本次master上特有的全部commit都提取出来顶到最上面，生成新的commit，每个commit有一个冲突，也就可能多次冲突。相当于把master上的commit复制一遍到了dev上，但是还是处在master分支。<br><img src="afterrebase.jpg" alt="rebase之后"></p>
+        <h3 id="添加子公共项目："><a href="#添加子公共项目：" class="headerlink" title="添加子公共项目："></a>添加子公共项目：</h3><p><pre><br>git remote add childUpstream <a href="https://xxxx" target="_blank" rel="noopener">https://xxxx</a><br>git subtree –prefix -S=放子git工程的文件夹 childUpstream 分支<br></pre><br><a id="more"></a></p>
+<h3 id="git-rebase-git-merge"><a href="#git-rebase-git-merge" class="headerlink" title="git rebase, git merge"></a>git rebase, git merge</h3><p>merge之前<br><img src="/2018/04/09/git命令小结/beforemerge.jpg" alt="merge前"><br>在master上merge，根据696和8ab和两个分支的共同祖先e38进行三方合并，最后生成新commit<br><img src="/2018/04/09/git命令小结/aftermerge.jpg" alt="merge后"></p>
+<p>rebase之前<br><img src="/2018/04/09/git命令小结/beforerebase.jpg" alt="rebase之前"><br>在master上git rebase dev，会把rebase的分支上内容拉下来，再把本次master上特有的全部commit都提取出来顶到最上面，生成新的commit，每个commit有一个冲突，也就可能多次冲突。相当于把master上的commit复制一遍到了dev上，但是还是处在master分支。<br><img src="/2018/04/09/git命令小结/afterrebase.jpg" alt="rebase之后"></p>
 
       
 

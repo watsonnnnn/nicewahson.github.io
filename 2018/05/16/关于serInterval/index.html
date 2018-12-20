@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Max&#39;s blog">
 <meta property="og:description" content="serInterval()表示以一定时间间隔去循环回调，指定的是’开始执行’之间的时间间隔，不考虑每次循环本身的时间。setInterval和serTimeout都表示的异步macroTask，也就是说在主线程空闲时候，如果时间到的话就去开始执行回调。对于serInterval，设定时间大于每次循环的时间，不会有问题；如果每次task的时间超出了指定时间间隔的话，就会有问题 对于浏览器来说，浏览器">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-17T00:51:09.536Z">
+<meta property="og:updated_time" content="2018-12-20T15:42:19.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于serInterval">
 <meta name="twitter:description" content="serInterval()表示以一定时间间隔去循环回调，指定的是’开始执行’之间的时间间隔，不考虑每次循环本身的时间。setInterval和serTimeout都表示的异步macroTask，也就是说在主线程空闲时候，如果时间到的话就去开始执行回调。对于serInterval，设定时间大于每次循环的时间，不会有问题；如果每次task的时间超出了指定时间间隔的话，就会有问题 对于浏览器来说，浏览器">
@@ -189,6 +189,7 @@ setInterval(function(){
 等到第二行语句运行完成以后，立刻连续输出三个2，然后开始每隔1000毫秒，输出一个2。也就是说，setIntervel具有累积效应，如果某个操作特别耗时，超过了setInterval的时间间隔，排在后面的操作会被累积起来，然后在很短的时间内连续触发，这可能或造成性能问题（比如集中发出Ajax请求）
 </pre>
 
+<a id="more"></a>
 <p>但是对于nodejs来说，就不会发生累积。setInterval 在准备把回调函数加入到事件队列的时候，会判断队列中是否还有未执行的回调，如果有的话，它就不会再往队列中添加回调函数</p>
 <pre>
 var count = 0;

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Max&#39;s blog">
 <meta property="og:description" content="String.prototype.replacestring.replace: function(regexp, replacement) regexp可以使用/g修饰符。 replacement可以是字符串，也可以是$符号用来指代替换内容。  $&amp;:代指匹配到的内容本身 $`:代指匹配到的结果前面的文本(前面所有) $&apos;:代指匹配到的结果后面的文本 $n:代指匹配到的第n组内容 $$:指美元符号">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-22T14:19:33.000Z">
+<meta property="og:updated_time" content="2018-12-20T15:42:19.038Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="string和array的api">
 <meta name="twitter:description" content="String.prototype.replacestring.replace: function(regexp, replacement) regexp可以使用/g修饰符。 replacement可以是字符串，也可以是$符号用来指代替换内容。  $&amp;:代指匹配到的内容本身 $`:代指匹配到的结果前面的文本(前面所有) $&apos;:代指匹配到的结果后面的文本 $n:代指匹配到的第n组内容 $$:指美元符号">
@@ -192,6 +192,7 @@ $$:指美元符号
 // "qwersa-qwersaom"
 
 </pre>
+<a id="more"></a>
 replacement也可以是函数，function(match, $1, $2,..., index, string){}
 match是匹配到的内容，$n指分组，有多少分组就有多少$，最后的index指内容的起始下标，string指原字符串。
 <pre>

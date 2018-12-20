@@ -8,23 +8,23 @@
   <link rel="dns-prefetch" href="http://nicewahson.github.io">
   <title>flex布局 | Max&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="flex容器属性flex-direction: row | row-reverse | column | column-reverse  flex-wrap: nowrap | wrap | wrap-reverse">
+  <meta name="description" content="flex容器属性flex-direction: row | row-reverse | column | column-reverse">
 <meta name="keywords" content="css flex">
 <meta property="og:type" content="article">
 <meta property="og:title" content="flex布局">
 <meta property="og:url" content="http://nicewahson.github.io/2018/04/11/flex布局/index.html">
 <meta property="og:site_name" content="Max&#39;s blog">
-<meta property="og:description" content="flex容器属性flex-direction: row | row-reverse | column | column-reverse  flex-wrap: nowrap | wrap | wrap-reverse">
+<meta property="og:description" content="flex容器属性flex-direction: row | row-reverse | column | column-reverse">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://nicewahson.github.io/2018/04/11/flex布局/direction.jpg">
 <meta property="og:image" content="http://nicewahson.github.io/2018/04/11/flex布局/wrap.png">
 <meta property="og:image" content="http://nicewahson.github.io/2018/04/11/flex布局/justifycontent.png">
 <meta property="og:image" content="http://nicewahson.github.io/2018/04/11/flex布局/alignitems.png">
 <meta property="og:image" content="http://nicewahson.github.io/2018/04/11/flex布局/aligncontent.png">
-<meta property="og:updated_time" content="2018-04-29T13:52:16.818Z">
+<meta property="og:updated_time" content="2018-12-20T15:42:19.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flex布局">
-<meta name="twitter:description" content="flex容器属性flex-direction: row | row-reverse | column | column-reverse  flex-wrap: nowrap | wrap | wrap-reverse">
+<meta name="twitter:description" content="flex容器属性flex-direction: row | row-reverse | column | column-reverse">
 <meta name="twitter:image" content="http://nicewahson.github.io/2018/04/11/flex布局/direction.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Max&#39;s blog" type="application/atom+xml">
@@ -182,20 +182,20 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><h2 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h2><p>flex-direction: row | row-reverse | column | column-reverse</p>
-<p><img src="direction.jpg" alt="flex-direction"></p>
-<p>flex-wrap: nowrap | wrap | wrap-reverse</p>
-<p><img src="wrap.png" alt="flex-direction"></p>
+<p><img src="/2018/04/11/flex布局/direction.jpg" alt="flex-direction"></p>
 <a id="more"></a>
+<p>flex-wrap: nowrap | wrap | wrap-reverse</p>
+<p><img src="/2018/04/11/flex布局/wrap.png" alt="flex-direction"></p>
 <p>flex-flow: 上两个属性简写 flex-direction flex-wrap</p>
 <p>justify-content: 主轴对齐方式 flex-start | flex-end | center | space-between | space-around</p>
-<p><img src="justifycontent.png" alt="justify-content"></p>
+<p><img src="/2018/04/11/flex布局/justifycontent.png" alt="justify-content"></p>
 <p>align-items: 交叉轴对齐方式 flex-start | flex-end | center | baseline(第一行文字基线对齐) | stretch(如果项目未设置高度或设为auto，将占满整个容器的高度)</p>
-<p><img src="alignitems.png" alt="align-items"></p>
+<p><img src="/2018/04/11/flex布局/alignitems.png" alt="align-items"></p>
 <p>align-content: 多行元素对齐方式 flex-start | flex-end | center | space-around | space-between | stretch </p>
-<p>和上一个属性区别就是这个是处理<strong>多行</strong>的，所以对于单行这个属性无效。<br><img src="aligncontent.png" alt="align-content"></p>
+<p>和上一个属性区别就是这个是处理<strong>多行</strong>的，所以对于单行这个属性无效。<br><img src="/2018/04/11/flex布局/aligncontent.png" alt="align-content"></p>
 <h2 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h2><p>order: integer 排序 默认为0 越小越靠前排列</p>
 <hr>
-<p>flex-grow: integer 放大比例 默认为0；如果剩余空间为 x，三个元素的 flex-grow 分别为 a，b，c。设 sum 为 a + b + c。那么三个元素将得到剩余空间分别是 x <em> a / sum, x </em> b / sum, x * c / sum。</p>
+<p>flex-grow: integer 放大比例 默认为0，存在剩余空间也不放大；如果剩余空间为 x，三个元素的 flex-grow 分别为 a，b，c。设 sum 为 a + b + c。那么三个元素将得到剩余空间分别是 x <em> a / sum, x </em> b / sum, x * c / sum。</p>
 <p>父元素宽度 500px，三个子元素的 width 分别为 100px，150px，100px。</p>
 <p>于是剩余空间为 150px</p>
 <p>三个元素的 flex-grow 分别是 1，2，3，于是 sum 为 6</p>
